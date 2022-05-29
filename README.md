@@ -1,0 +1,2 @@
+# QC_Checklist_dropdown_funtionality_with_javascript
+Select main heading then automatically reflected related paragraph
