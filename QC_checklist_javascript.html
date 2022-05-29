@@ -1,0 +1,2392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content=
+	"width=device-width,initial-scale=1.0">
+
+	<!-- CSS only -->
+	<link href=
+"https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+		integrity=
+"sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+		crossorigin="anonymous" rel="stylesheet">
+
+	<!-- Html2Pdf -->
+	<script src=
+"https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.8.1/html2pdf.bundle.min.js"
+		integrity=
+"sha512vDKWohFHe2vkVWXHp3tKvIxxXg0pJxeid5eo+UjdjME3DBFBn2F8yWOE0XmiFcFbXxrEOR1JriWEno5Ckpn15A=="
+		crossorigin="anonymous">
+	</script>
+<!-- <script src=
+"https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+		integrity=
+"sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+		crossorigin="anonymous">
+	</script> -->
+	<style>
+        /* @page {
+  size: A4;
+  margin: 0;
+} */
+     /* @media print {
+
+html, body {
+    height: 100%;  
+  margin: 0 !important; 
+  padding: 0 !important;
+}
+
+} */
+select#qc {
+    width: 100%;
+    height: 70px;
+    text-align: center;
+    font-size: 19px;
+    font-weight: 500;
+    background-color: #0000009c;
+    color: white;
+}
+option {
+    font-size: 13px !important;
+}
+#details {
+    color: white;
+    width: 81%;
+    padding: 0px 0px 0px 4px;
+    border: none;
+    background-color: #636363;
+}
+#understand {
+    text-align: center;
+    background-color: orange;
+    font-weight: bold;
+    font-family: calibri;
+    margin: 0px;
+}
+#pro {
+    background-color: #636363;
+    color: white;
+    font-family: calibri;
+    margin:0px;
+}
+#tdetail {
+    height: 44px;
+    width: 100%;
+    border: 1px solid black;
+}
+#pim2,#tech_doc2, #marketing2, #aftermarkets2,#broucher_flyers2,#rendered_images2, #photoshope2, #illustrations2, #ecns_process2, #operations_manuals2 , #hydraulic_illustration2, #electrical_illustraitons2, #spp_list2, #photo_vector2,
+#model_packages2, #service_manuals2, #wearpart_kits2, #service_kits2, #field_kits2, #asl_books2, #operation_safety2, #f80w_ecnsprocess2, #euro_shatal2 {
+    background-color: orange;
+    text-align: center;
+    font-weight: bold;
+    margin:0px;
+}
+#addition{
+    background-color: orange;
+    text-align: center;
+    font-weight: bold;
+    margin:0px;
+    margin-top: -16px;
+}
+p#date {
+    font-weight: 700;
+    color: white;
+    background-color: #0000009c;
+    text-align: center;
+    margin: 0px;
+}
+table{  
+    border-collapse: collapse;  
+    width: 100%;   
+    
+} 
+table tr td {
+    border: 1px solid black;
+}
+th{
+    border: 1px solid black;
+} 
+/* .checkboxBorder {
+    border: 1px solid;
+} */
+.pim1{
+    border: none;
+    border-left: 1px solid;
+}
+.tech_doc1, .marketing1, .aftermarkets1, .broucher_flyers1, .rendered_images1, .photoshope1, .illustrations1, .ecns_process1, .operations_manuals1 , .hydraulic_illustration1, .electrical_illustraitons1, .spp_list1, .photo_vector1,
+.model_packages1, .service_manuals1, .wearpart_kits1, .service_kits1, .field_kits1, .asl_books1, .operation_safety1, .f80w_ecnsprocess1, .euro_shatal1
+{
+        display:none;
+        border: none;
+       border-left: 1px solid;
+    }   
+input {
+    border: none;
+    width: 100%;
+    height: 22px;
+    margin: 0px;
+    padding: 0px !important;
+    font-size: 14px;
+}
+input[type="checkbox"] {
+    height: 14px !important;
+}
+td.pim1 input,td.tech_doc1 input, td.marketing1 input, td.aftermarkets1 input, td.broucher_flyers1 input, td.rendered_images1 input, td.photoshope1 input, td.illustrations1 input, td.ecns_process1 input, td.operations_manuals1 input , td.hydraulic_illustration1 input, td.electrical_illustraitons1 input, td.spp_list1 input, td.photo_vector1 input,
+td.model_packages1 input, td.service_manuals1 input, td.wearpart_kits1 input, td.service_kits1 input, td.field_kits1 input, td.asl_books1 input, td.operation_safety1 input, td.f80w_ecnsprocess1 input, td.euro_shatal1 input {
+    height: 25px;
+}
+input[type="text"]::placeholder {
+    font-size: 14px;
+    color: black;
+    padding-left: 8px;
+    font-family: calibri;
+}
+select#tssname {
+    border: none;
+    font-weight: bold;
+    font-family: calibri;
+}
+.btn.btn-primary {
+    padding: 2px 10px;
+    margin: 5px 0px;
+}
+</style>
+</head>
+
+<body>
+         <div class="container" id="form-print">
+
+                <table id="secondtable" style="padding: 0px;">
+                    <tr>
+                        <td colspan="4" rowspan="2" > <select id = "qc" name = "QC" onchange="showDiv(this)">
+                            <option value = "pim" >PIM</option>
+                            <option value = "tech_doc" >Tech_DOC</option>
+                            <option value = "marketing">Marketing</option>
+                            <option value = "aftermarkets">Aftermarkets</option>
+                            <option value = "broucher_flyers">BROUCHER_FLYERS</option>
+                            <option value = "rendered_images">RENDERED_IMAGES</option>
+                            <option value = "photoshope">PHOTOSHOPE</option>
+                            <option value = "illustrations">Illustrations</option>
+                            <option value = "ecns_process">ECNs_process</option>
+                            <option value = "operations_manuals">Operation_Safety_Service_Manuals</option>
+                            <option value = "hydraulic_illustration">Hydraulic_Illustration</option>
+                            <option value = "electrical_illustraitons">Electrical_Illustraitons</option>
+                            <option value = "spp_list">SPP_list</option>
+                            <option value = "photo_vector">Photo_to_Vector</option>
+                            <option value = "model_packages">Model_Monthly_Packages</option>
+                            <option value = "service_manuals">Service_Manuals</option>
+                            <option value = "wearpart_kits">WearPart_Refurbishing_Kits</option>
+                            <option value = "service_kits">Service_kits_Manuals</option>
+                            <option value = "field_kits">Field_Kits_Manual</option>
+                            <option value = "asl_books">ASL_books_creation</option>
+                            <option value = "operation_safety">Operation_Safety_Service_AMMAN</option>
+                            <option value = "f80w_ecnsprocess">F80W_ECNsProcess</option>
+                            <option value = "euro_shatal">Euro_Shatal</option>
+                         </select></td>
+                        <td colspan="3" style="padding:0px;"><p id="date" ></p></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><h3 style="text-align: center;font-weight: 900; color: #2a55a0;">TSS GROUP</h3></td>
+                    </tr>
+                    <tr>
+                        <th colspan="4" id="pro" style="width: 57%;"> Project Details:<input type="text" id="details"></th>
+                        <th style="text-align: center; width:10%;">
+                            <select id = "tssname">
+                                <option value = "tname" >Self QC Name</option>
+                                <option value = "t1name">Lavanya</option>
+                                <option value = "t2name">Hemant</option>
+                                <option value = "t3name">Harsh</option>
+                                <option value = "t4name">Shikha</option>
+                                <option value = "t5name" >Akashatha</option>
+                                <option value = "t6name" >Deepak</option>
+                            </select>  
+                        </th>
+                        <th style="text-align: center;width:10%;">
+                            <select id = "tssname">
+                                <option value = "t7name" >Final QC Name</option>
+                                <option value = "t8name">Lavanya</option>
+                                <option value = "t9name">Hemant</option>
+                                <option value = "t10name">Harsh</option>
+                                <option value = "t11name">Shikha</option>
+                                <option value = "t12name" >Akashatha</option>
+                                <option value = "t13name" >Deepak</option>
+                            </select>   
+                        </th>
+                        <th style="text-align: center;border: 1px solid black;font-weight: bold;font-family: calibri;">Remarks</th>
+                    </tr>  
+                    <tr>
+                        <td colspan="4" id="understand">Task Understanding</td>
+                        <td><input type="text" class="second" readonly ></td>
+                        <td><input type="text" class="second" readonly ></td>
+                        <td><input type="text" class="second" readonly></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                         <textarea type="text" style=" width: 100%; border: none; height: 66px; font-size: 13px;"></textarea>
+                        </td>
+                        <td><textarea type="text" style=" width: 100%; border: none; height: 66px; font-size: 13px;"></textarea></td>
+                        <td><textarea type="text" style=" width: 100%; border: none; height: 66px; font-size: 13px;"></textarea></td>
+                        <td><textarea type="text" style=" width: 100%; border: none; height: 66px; font-size: 13px;"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="pim1"colspan="4" style="background-color: orange;text-align: center;font-weight: bold;margin: 0px;">PIM</td>
+                        <td class="tech_doc1"colspan="4" style="background-color: orange;text-align: center;font-weight: bold;margin: 0px;">tech_doc</td>
+                        <td class="marketing1"colspan="4" style="background-color: orange;text-align: center;font-weight: bold;margin: 0px;">marketing</td>
+                        <td class="aftermarkets1"colspan="4" style="background-color: orange;text-align: center;font-weight: bold;margin: 0px;">aftermarkets</td>
+                        <td class="broucher_flyers1"colspan="4" style="background-color: orange;text-align: center;font-weight: bold;margin: 0px;">BROUCHER_FLYERS</td>
+                        <td class="rendered_images1"colspan="4" style="background-color: orange;text-align: center;font-weight: bold;margin: 0px;">RENDERED_IMAGES</td>
+                        <td class="photoshope1"colspan="4" style="background-color: orange;text-align: center;font-weight: bold;margin: 0px;">PHOTOSHOPE</td>
+                        <td class="illustrations1"colspan="4" style="background-color: orange;text-align: center;font-weight: bold;margin: 0px;">Illustrations</td>
+                        <td class="ecns_process1"colspan="4" style="background-color: orange;text-align: center;font-weight: bold;margin: 0px;">ECNs_process</td>
+                        <td class="operations_manuals1"colspan="4" style="background-color: orange;text-align: center;font-weight: bold;margin: 0px;">Operation_Safety_Service_Manuals</td>
+                        <td class="hydraulic_illustration1"colspan="4" style="background-color: orange;text-align: center;font-weight: bold;margin: 0px;">Hydraulic_Illustration</td>
+                        <td class="electrical_illustraitons1"colspan="4" style="background-color: orange;text-align: center;font-weight: bold;margin: 0px;">Electrical_Illustraitons</td>
+                        <td class="spp_list1"colspan="4" style="background-color: orange;text-align: center;font-weight: bold;margin: 0px;">SPP_list</td>
+                        <td class="photo_vector1"colspan="4" style="background-color: orange;text-align: center;font-weight: bold;margin: 0px;">Photo_to_Vector</td>
+                        <td class="model_packages1"colspan="4" style="background-color: orange;text-align: center;font-weight: bold;margin: 0px;">Model_Monthly_Packages</td>
+                        <td class="service_manuals1"colspan="4" style="background-color: orange;text-align: center;font-weight: bold;margin: 0px;">Service_Manuals</td>
+                        <td class="wearpart_kits1"colspan="4" style="background-color: orange;text-align: center;font-weight: bold;margin: 0px;">WearPart_Refurbishing_Kits</td>
+                        <td class="service_kits1"colspan="4" style="background-color: orange;text-align: center;font-weight: bold;margin: 0px;">Service_kits_Manuals</td>
+                        <td class="field_kits1"colspan="4" style="background-color: orange;text-align: center;font-weight: bold;margin: 0px;">Field_Kits_Manual</td>
+                        <td class="asl_books1"colspan="4" style="background-color: orange;text-align: center;font-weight: bold;margin: 0px;">ASL_books_creation</td>
+                        <td class="operation_safety1"colspan="4" style="background-color: orange;text-align: center;font-weight: bold;margin: 0px;">Operation_Safety_Service_AMMAN</td>
+                        <td class="f80w_ecnsprocess1"colspan="4" style="background-color: orange;text-align: center;font-weight: bold;margin: 0px;">F80W_ECNsProcess</td>
+                        <td class="euro_shatal1"colspan="4" style="background-color: orange;text-align: center;font-weight: bold;margin: 0px;">Euro_Shatal</td>
+                        <td ><input type="text" class="second" readonly></td><td ><input type="text" class="second" readonly></td><td ><input type="text" class="second" readonly></td>
+                        
+                    </tr>
+                    <tr>
+                        <td class="pim1"colspan="4"><input type="text" placeholder="1.) Addition of product"readonly ></td>
+                        <td class="tech_doc1"colspan="4"><input type="text" placeholder="1.) TECHDOC PROJECT 1"readonly ></td>
+                        <td class="marketing1"colspan="4"><input type="text" placeholder="1.) Marketing PROJECT 1"readonly ></td>
+                        <td class="aftermarkets1"colspan="4"><input type="text" placeholder="1.) Aftermarket PROJECT 1"readonly ></td>
+                        <td class="broucher_flyers1"colspan="4"><input type="text" placeholder="1.) Check for number for sheets (Multiples of 4)"readonly ></td>
+                        <td class="rendered_images1"colspan="4"><input type="text" placeholder="1.) Ensure for all the parts, If missing Import the missing part and render new image"readonly ></td>
+                        <td class="photoshope1"colspan="4"><input type="text" placeholder="1.) Check the resolution of Image, It should be in HD format"readonly ></td>
+                        <td class="illustrations1"colspan="4"><input type="text" placeholder="1.) Download files from PSP"readonly ></td>
+                        <td class="ecns_process1"colspan="4"><input type="text" placeholder="1.) Save input files with specific ECN no."readonly ></td>
+                        <td class="operations_manuals1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="hydraulic_illustration1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="electrical_illustraitons1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="spp_list1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="photo_vector1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="model_packages1"colspan="4"><input type="text" placeholder="1.) XML to XLS list creation"readonly ></td>
+                        <td class="service_manuals1"colspan="4"><input type="text" placeholder="1.) Convert Bomag  to Dynapac in Acrobat Prof."readonly ></td>
+                        <td class="wearpart_kits1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="service_kits1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="field_kits1"colspan="4"><input type="text" placeholder="1.) Check weather given kit is Existing or new kit"readonly ></td>
+                        <td class="asl_books1"colspan="4"><input type="text" placeholder="1.) Download book from POL"readonly ></td>
+                        <td class="operation_safety1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="f80w_ecnsprocess1"colspan="4"><input type="text" placeholder="1.) Download all input ECN files"readonly ></td>
+                        <td class="euro_shatal1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class='checkboxBorder'><input type="checkbox" ></td><td class='checkboxBorder'><input type="checkbox" ></td><td ><input type="text" class="second"></td>
+                    </tr>
+                    <tr>
+                        <td class="pim1"colspan="4"><input type="text" placeholder="2.) Select market or language"readonly ></td>
+                        <td class="tech_doc1"colspan="4"><input type="text" placeholder="2.) TECHDOC PROJECT 2"readonly >
+                        <td class="marketing1"colspan="4"><input type="text" placeholder="2.) Marketing PROJECT 1"readonly ></td>
+                        <td class="aftermarkets1"colspan="4"><input type="text" placeholder="2.) Aftermarket PROJECT 1"readonly ></td>
+                        <td class="broucher_flyers1"colspan="4"><input type="text" placeholder="2.) Template used to be Dynapac brochure template/Flyers"readonly ></td>
+                        <td class="rendered_images1"colspan="4"><input type="text" placeholder="2.) Product Parts in Image color should match to realistic product color parts"readonly ></td>
+                        <td class="photoshope1"colspan="4"><input type="text" placeholder="2.) Product color should match to Dynapac real machine color"readonly ></td>
+                        <td class="illustrations1"colspan="4"><input type="text" placeholder="2.) Creat or update illustrations as per standards"readonly ></td>
+                        <td class="ecns_process1"colspan="4"><input type="text" placeholder="2.) Check is any attachments are available"readonly ></td>
+                        <td class="operations_manuals1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="hydraulic_illustration1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="electrical_illustraitons1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="spp_list1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="photo_vector1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="model_packages1"colspan="4"><input type="text" placeholder="2.) Save XLS file in specific Product folder"readonly ></td>
+                        <td class="service_manuals1"colspan="4"><input type="text" placeholder="2.) Nomenclature update to Model Numbers"readonly ></td>
+                        <td class="wearpart_kits1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="service_kits1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="field_kits1"colspan="4"><input type="text" placeholder="2.) If existing update with new changes"readonly ></td>
+                        <td class="asl_books1"colspan="4"><input type="text" placeholder="2.) Check Cover and End page are available "readonly ></td>
+                        <td class="operation_safety1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="f80w_ecnsprocess1"colspan="4"><input type="text" placeholder="2.) Check any OMM/Service/workshop manuals received"readonly ></td>
+                        <td class="euro_shatal1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class='checkboxBorder'><input type="checkbox" ></td><td class='checkboxBorder'><input type="checkbox" ></td><td ><input type="text" class="second"></td>
+                    </tr>
+                    <tr>
+                        <td class="pim1"colspan="4"><input type="text" placeholder="3.) Check the template"readonly ></td>
+                        <td class="tech_doc1"colspan="4"><input type="text" placeholder="3.) TECHDOC PROJECT 3"readonly ></td>
+                        <td class="marketing1"colspan="4"><input type="text" placeholder="3.) Marketing PROJECT 1"readonly ></td>
+                        <td class="aftermarkets1"colspan="4"><input type="text" placeholder="3.) Aftermarket PROJECT 1"readonly ></td>
+                        <td class="broucher_flyers1"colspan="4"><input type="text" placeholder="3.) Cover Page Image should be with respective to brochure product or Worksite images"readonly ></td>
+                        <td class="rendered_images1"colspan="4"><input type="text" placeholder="3.) product orientation should match with the Dynapac studio orienations"readonly ></td>
+                        <td class="photoshope1"colspan="4"><input type="text" placeholder="3.) Dynapac Branding Standards should be followed(logo/color codes/shadows)"readonly ></td>
+                        <td class="illustrations1"colspan="4"><input type="text" placeholder="3.) Export to STD concept of SVG/PNG"readonly ></td>
+                        <td class="ecns_process1"colspan="4"><input type="text" placeholder="3.) Download assymbly inputs from PSP"readonly ></td>
+                        <td class="operations_manuals1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="hydraulic_illustration1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="electrical_illustraitons1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="spp_list1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="photo_vector1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="model_packages1"colspan="4"><input type="text" placeholder="3.) Compare in Beyond Compare"readonly ></td>
+                        <td class="service_manuals1"colspan="4"><input type="text" placeholder="3.) Nomenclature update for name (ex: BOSS - Active Zone System)"readonly ></td>
+                        <td class="wearpart_kits1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="service_kits1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="field_kits1"colspan="4"><input type="text" placeholder="3.) If its new Create illustrations as per standards"readonly ></td>
+                        <td class="asl_books1"colspan="4"><input type="text" placeholder="3.) Convert pdf to word in Acrobat"readonly ></td>
+                        <td class="operation_safety1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="f80w_ecnsprocess1"colspan="4"><input type="text" placeholder="3.) Listout all ECN inputs and OMM manuals in F80W master Excel"readonly ></td>
+                        <td class="euro_shatal1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class='checkboxBorder'><input type="checkbox" ></td><td class='checkboxBorder'><input type="checkbox" ></td><td ><input type="text" class="second"></td>
+                    </tr>
+                    <tr>
+                        <td class="pim1"colspan="4"><input type="text" placeholder="4.) Product status should be upcoming"readonly ></td>
+                        <td class="tech_doc1"colspan="4"><input type="text" placeholder="4.) TECHDOC PROJECT 4"readonly ></td>
+                        <td class="marketing1"colspan="4"><input type="text" placeholder="4.) Marketing PROJECT 1"readonly ></td>
+                        <td class="aftermarkets1"colspan="4"><input type="text" placeholder="4.) Aftermarket PROJECT 1"readonly ></td>
+                        <td class="broucher_flyers1"colspan="4"><input type="text" placeholder="4.) Brochure styles, graphics, logos and icons should be alligned to Dynapac branding guidelines"readonly ></td>
+                        <td class="rendered_images1"colspan="4"><input type="text" placeholder="4.) Ensure the visibility of the image with proper lighting"readonly ></td>
+                        <td class="photoshope1"colspan="4"><input type="text" placeholder="4.) Text inside the image if any should be as per DYN brnading guidelines"readonly ></td>
+                        <td class="illustrations1"colspan="4"><input type="text" placeholder="4.) Track new items to POL."readonly ></td>
+                        <td class="ecns_process1"colspan="4"><input type="text" placeholder="4.) Study the ECN clearly before start"readonly ></td>
+                        <td class="operations_manuals1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="hydraulic_illustration1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="electrical_illustraitons1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="spp_list1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="photo_vector1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="model_packages1"colspan="4"><input type="text" placeholder="4.) Create illustrations as per the STDs"readonly ></td>
+                        <td class="service_manuals1"colspan="4"><input type="text" placeholder="4.) Update the image to Neutral  / Dynapac branding"readonly ></td>
+                        <td class="wearpart_kits1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="service_kits1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="field_kits1"colspan="4"><input type="text" placeholder="4.) Export to STD concept of SVG/PNG"readonly ></td>
+                        <td class="asl_books1"colspan="4"><input type="text" placeholder="4.) Add 40-prefix to all part numbers"readonly ></td>
+                        <td class="operation_safety1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="f80w_ecnsprocess1"colspan="4"><input type="text" placeholder="4.) Study all inputs and verify with input PDF"readonly ></td>
+                        <td class="euro_shatal1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class='checkboxBorder'><input type="checkbox" ></td><td class='checkboxBorder'><input type="checkbox" ></td><td ><input type="text" class="second"></td>
+                    </tr>
+                    <tr>
+                        <td class="pim1"colspan="4"><input type="text" placeholder="5.) Once the product is created check the tab colour it should not be red (if it is red then product is released.)"readonly ></td>
+                        <td class="tech_doc1"colspan="4"><input type="text" placeholder="5.) TECHDOC PROJECT 5"readonly ></td>
+                        <td class="marketing1"colspan="4"><input type="text" placeholder="5.) Marketing PROJECT 1"readonly ></td>
+                        <td class="aftermarkets1"colspan="4"><input type="text" placeholder="5.) Aftermarket PROJECT 1"readonly ></td>
+                        <td class="broucher_flyers1"colspan="4"><input type="text" placeholder="5.) Images should be High resolution images"readonly ></td>
+                        <td class="rendered_images1"colspan="4"><input type="text" placeholder="5.) Image should be with white background and ensure for branding logos"readonly ></td>
+                        <td class="photoshope1"colspan="4"><input type="text" placeholder="5.) Avoid discrepancies like Vulgrable Text or image which is not as per Dynapac Stds."readonly ></td>
+                        <td class="illustrations1"colspan="4"><input type="text" placeholder="5.) Update POL pages"readonly ></td>
+                        <td class="ecns_process1"colspan="4"><input type="text" placeholder="5.) Creat or update illustrations as per standards"readonly ></td>
+                        <td class="operations_manuals1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="hydraulic_illustration1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="electrical_illustraitons1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="spp_list1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="photo_vector1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="model_packages1"colspan="4"><input type="text" placeholder="5.) Save files in Concepts defined"readonly ></td>
+                        <td class="service_manuals1"colspan="4"><input type="text" placeholder="5.) Update the Part Numbers with DL prefix"readonly ></td>
+                        <td class="wearpart_kits1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="service_kits1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="field_kits1"colspan="4"><input type="text" placeholder="5.) Create POL Book"readonly ></td>
+                        <td class="asl_books1"colspan="4"><input type="text" placeholder="5.) Verify each page manualy"readonly ></td>
+                        <td class="operation_safety1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="f80w_ecnsprocess1"colspan="4"><input type="text" placeholder="5.) Create illustrations as per standards"readonly ></td>
+                        <td class="euro_shatal1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class='checkboxBorder'><input type="checkbox" ></td><td class='checkboxBorder'><input type="checkbox" ></td><td ><input type="text" class="second"></td>
+                    </tr>
+                    <tr>
+                        <td class="pim1"colspan="4"><input type="text" placeholder="6.) Data addition"readonly ></td>
+                        <td class="tech_doc1"colspan="4"><input type="text" placeholder="6.) TECHDOC PROJECT 6"readonly ></td>
+                        <td class="marketing1"colspan="4"><input type="text" placeholder="6.) Marketing PROJECT 1"readonly ></td>
+                        <td class="aftermarkets1"colspan="4"><input type="text" placeholder="6.) Aftermarket PROJECT 1"readonly ></td>
+                        <td class="broucher_flyers1"colspan="4"><input type="text" placeholder="6.) Verify the content both Technicaly and Gramatically"readonly ></td>
+                        <td class="rendered_images1"colspan="4"><input type="text" placeholder="6.) Final Product Image should be as per Dyanpac product color code guidelines"readonly ></td>
+                        <td class="photoshope1"colspan="4"><input type="text" placeholder="6.) Dynapac studio images should be saved with and without background"readonly ></td>
+                        <td class="illustrations1"colspan="4"><input type="text" placeholder="6.) Release ISO files to PSP"readonly ></td>
+                        <td class="ecns_process1"colspan="4"><input type="text" placeholder="6.) Export to STD concept of SVG/PNG"readonly ></td>
+                        <td class="operations_manuals1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="hydraulic_illustration1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="electrical_illustraitons1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="spp_list1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="photo_vector1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="model_packages1"colspan="4"><input type="text" placeholder="6.) Export to STD concept of SVG/PNG"readonly ></td>
+                        <td class="service_manuals1"colspan="4"><input type="text" placeholder="6.) Update the OIL & lubricants"readonly ></td>
+                       <td class="wearpart_kits1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                       <td class="service_kits1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                       <td class="field_kits1"colspan="4"><input type="text" placeholder="6.) Creat Cover and End pages and add it to respective POL book"readonly ></td>
+                       <td class="asl_books1"colspan="4"><input type="text" placeholder="6.) Expert word file to PDF with model name"readonly ></td>
+                       <td class="operation_safety1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                       <td class="f80w_ecnsprocess1"colspan="4"><input type="text" placeholder="6.) Export to STD concept of SVG/PNG"readonly ></td>
+                       <td class="euro_shatal1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                       <td class='checkboxBorder'><input type="checkbox" ></td><td class='checkboxBorder'><input type="checkbox" ></td><td ><input type="text" class="second"></td>
+                    </tr>
+                    <tr>
+                        <td class="pim1"colspan="4"><input type="text" placeholder="7.) Check attribute group with sub-category"readonly ></td>
+                        <td class="tech_doc1"colspan="4"><input type="text" placeholder="7.) TECHDOC PROJECT 7"readonly ></td>
+                        <td class="marketing1"colspan="4"><input type="text" placeholder="7.) Marketing PROJECT 1"readonly ></td>
+                        <td class="aftermarkets1"colspan="4"><input type="text" placeholder="7.) Aftermarket PROJECT 1"readonly ></td>
+                        <td class="broucher_flyers1"colspan="4"><input type="text" placeholder="7.) Content should be with in the printable frame"readonly ></td>
+                        <td class="rendered_images1"colspan="4"><input type="text" readonly ></td>
+                        <td class="photoshope1"colspan="4"><input type="text" placeholder="7.) Source Images should be saved in .psd format inside 0_Images_Links folder"readonly ></td>
+                        <td class="illustrations1"colspan="4"><input type="text" readonly ></td>
+                        <td class="ecns_process1"colspan="4"><input type="text" placeholder="7.) Track new items to POL."readonly ></td>
+                        <td class="operations_manuals1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="hydraulic_illustration1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="electrical_illustraitons1"colspan="4"><input type="text" placeholder=""readonly ></td>  
+                        <td class="spp_list1"colspan="4"><input type="text" placeholder=""readonly ></td> 
+                        <td class="photo_vector1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="model_packages1"colspan="4"><input type="text" placeholder="7.) Create POL work as per S/N info"readonly ></td>
+                        <td class="service_manuals1"colspan="4"><input type="text" placeholder="7.) Update Header & Footer as per Dynapc Std"readonly ></td>
+                        <td class="wearpart_kits1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="service_kits1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="field_kits1"colspan="4"><input type="text" placeholder="7.) Update POL pages to book"readonly ></td>
+                        <td class="asl_books1"colspan="4"><input type="text" placeholder="7.) Make corrections and remove Dynapac branding using Acrobat"readonly ></td>
+                        <td class="operation_safety1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="f80w_ecnsprocess1"colspan="4"><input type="text" placeholder="7.) Create POL books as per S/N info"readonly ></td>
+                        <td class="euro_shatal1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class='checkboxBorder'><input type="checkbox" ></td><td class='checkboxBorder'><input type="checkbox" ></td><td ><input type="text" class="second"></td>
+                    </tr>
+                    <tr>
+                        <td class="pim1"colspan="4"><input type="text" placeholder="8.) Check data with the reference file"readonly ></td>
+                        <td class="tech_doc1"colspan="4"><input type="text" placeholder="8.) TECHDOC PROJECT 8"readonly ></td>
+                        <td class="marketing1"colspan="4"><input type="text" placeholder="8.) Marketing PROJECT 1"readonly ></td>
+                        <td class="aftermarkets1"colspan="4"><input type="text" placeholder="8.) Aftermarket PROJECT 1"readonly ></td>
+                        <td class="broucher_flyers1"colspan="4"><input type="text" placeholder="8.) Text style, size and color should be as per Dynapac printable branding guidelines"readonly ></td>
+                        <td class="rendered_images1"colspan="4"><input type="text" readonly ></td>
+                        <td class="photoshope1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="illustrations1"colspan="4"><input type="text" readonly ></td>
+                        <td class="ecns_process1"colspan="4"><input type="text" placeholder="8.) Update POL pages"readonly ></td>
+                        <td class="operations_manuals1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="hydraulic_illustration1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="electrical_illustraitons1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="spp_list1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="photo_vector1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="model_packages1"colspan="4"><input type="text" placeholder="8.) Update the POL pages with Hotpoint linking"readonly ></td>
+                        <td class="service_manuals1"colspan="4"><input type="text" placeholder="8.) Update the Cover & End page to Dynapac version"readonly ></td>
+                        <td class="wearpart_kits1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="service_kits1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="field_kits1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="asl_books1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="operation_safety1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="f80w_ecnsprocess1"colspan="4"><input type="text" placeholder="8.) Update POL pages to respective S/N books"readonly ></td>
+                        <td class="euro_shatal1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class='checkboxBorder'><input type="checkbox" ></td><td class='checkboxBorder'><input type="checkbox" ></td><td ><input type="text" class="second"></td>
+                    </tr>
+                    <tr>
+                        <td class="pim1"colspan="4"><input type="text" placeholder="9.) Check tick box for visibility"readonly ></td>
+                        <td class="tech_doc1"colspan="4"><input type="text" placeholder="9.) TECHDOC PROJECT 9"readonly ></td>
+                        <td class="marketing1"colspan="4"><input type="text" placeholder="9.) Marketing PROJECT 1"readonly ></td>
+                        <td class="aftermarkets1"colspan="4"><input type="text" placeholder="9.) Aftermarket PROJECT 1"readonly ></td>
+                        <td class="broucher_flyers1"colspan="4"><input type="text" placeholder="9.) Verify the Address and conatct details"readonly ></td>
+                        <td class="rendered_images1"colspan="4"><input type="text" readonly ></td>
+                        <td class="photoshope1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="illustrations1"colspan="4"><input type="text" readonly ></td>
+                        <td class="ecns_process1"colspan="4"><input type="text" placeholder="9.) Release ISO files to PSP"readonly ></td>
+                        <td class="operations_manuals1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="hydraulic_illustration1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="electrical_illustraitons1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="spp_list1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="photo_vector1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="model_packages1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="service_manuals1"colspan="4"><input type="text" placeholder="9.) Assign Dynapac Part number"readonly ></td>
+                        <td class="wearpart_kits1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="service_kits1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="field_kits1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="asl_books1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="operation_safety1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="f80w_ecnsprocess1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="euro_shatal1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class='checkboxBorder'><input type="checkbox" ></td><td class='checkboxBorder'><input type="checkbox" ></td><td ><input type="text" class="second"></td>
+                    </tr>
+                    <tr>
+                        <td class="pim1"colspan="4"><input type="text" placeholder="10.) Check unit (USA should be imperial rest of the market metric)"readonly ></td>
+                        <td class="tech_doc1"colspan="4"><input type="text" placeholder="10.) ATECHDOC PROJECT 10"readonly ></td>
+                        <td class="marketing1"colspan="4"><input type="text" placeholder="10.) Marketing PROJECT 1"readonly ></td>
+                        <td class="aftermarkets1"colspan="4"><input type="text" placeholder="10.) Aftermarket PROJECT 1"readonly ></td>
+                        <td class="broucher_flyers1"colspan="4"><input type="text" placeholder="10.) Assign the Document number based on PMI series along the language for new creation "readonly ></td>
+                        <td class="rendered_images1"colspan="4"><input type="text" readonly ></td>
+                        <td class="photoshope1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="illustrations1"colspan="4"><input type="text" readonly ></td>
+                        <td class="ecns_process1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="operations_manuals1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="hydraulic_illustration1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="electrical_illustraitons1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="spp_list1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="photo_vector1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="model_packages1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="service_manuals1"colspan="4"><input type="text" placeholder="10.) Upload to POL shelf"readonly ></td>
+                        <td class="wearpart_kits1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="service_kits1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="field_kits1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="asl_books1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="operation_safety1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="f80w_ecnsprocess1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="euro_shatal1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class='checkboxBorder'><input type="checkbox" ></td><td class='checkboxBorder'><input type="checkbox" ></td><td ><input type="text" class="second"></td>
+                    </tr>
+                    <tr>
+                        <td class="pim1"colspan="4"><input type="text" placeholder="11.) Publish to Web"readonly ></td>
+                        <td class="tech_doc1"colspan="4"><input type="text" placeholder="11.) TECHDOC PROJECT 11"readonly ></td>
+                        <td class="marketing1"colspan="4"><input type="text" placeholder="11.) Marketing PROJECT 1"readonly ></td>
+                        <td class="aftermarkets1"colspan="4"><input type="text" readonly ></td>
+                        <td class="broucher_flyers1"colspan="4"><input type="text" placeholder="11.) Check for document number, creation/revised month and year"readonly ></td>
+                        <td class="rendered_images1"colspan="4"><input type="text" readonly ></td>
+                        <td class="photoshope1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="illustrations1"colspan="4"><input type="text" readonly ></td>
+                        <td class="ecns_process1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="operations_manuals1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="hydraulic_illustration1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="electrical_illustraitons1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="spp_list1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="photo_vector1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="model_packages1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="service_manuals1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="wearpart_kits1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="service_kits1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="field_kits1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="asl_books1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="operation_safety1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="f80w_ecnsprocess1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="euro_shatal1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class='checkboxBorder'><input type="checkbox" ></td><td class='checkboxBorder'><input type="checkbox" ></td><td ><input type="text" class="second"></td>
+                    </tr>
+                    <tr>
+                        <td class="pim1"colspan="4"><input type="text" placeholder="12.) Get approval from customer"readonly ></td>
+                        <td class="tech_doc1"colspan="4"><input type="text" readonly ></td>
+                        <td class="marketing1"colspan="4"><input type="text" readonly ></td>
+                        <td class="aftermarkets1"colspan="4"><input type="text" readonly ></td>
+                        <td class="broucher_flyers1"colspan="4"><input type="text" placeholder="12.) Ensure the links for the images"readonly ></td>
+                        <td class="rendered_images1"colspan="4"><input type="text" readonly ></td>
+                       <td class="photoshope1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                       <td class="illustrations1"colspan="4"><input type="text" readonly ></td>
+                       <td class="ecns_process1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                       <td class="operations_manuals1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                       <td class="hydraulic_illustration1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                       <td class="electrical_illustraitons1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                       <td class="spp_list1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                       <td class="photo_vector1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                       <td class="model_packages1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                       <td class="service_manuals1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                       <td class="wearpart_kits1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                       <td class="service_kits1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                       <td class="field_kits1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                       <td class="asl_books1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                       <td class="operation_safety1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                       <td class="f80w_ecnsprocess1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                       <td class="euro_shatal1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class='checkboxBorder'><input type="checkbox" ></td><td class='checkboxBorder'><input type="checkbox" ></td><td ><input type="text" class="second"></td>
+                    </tr>
+                    <tr>
+                        <td class="pim1"colspan="4"><input type="text" placeholder="13.) Change the status from upcoming to Dynapac (Fayat) "readonly ></td>
+                        <td class="tech_doc1"colspan="4"><input type="text" readonly ></td>
+                        <td class="marketing1"colspan="4"><input type="text" readonly ></td>
+                        <td class="aftermarkets1"colspan="4"><input type="text" readonly ></td>
+                        <td class="broucher_flyers1"colspan="4"><input type="text" placeholder="13.) check for Dynapac brochure folder format and ensure all the supporting files are placed inside the respective folders"readonly ></td>
+                        <td class="rendered_images1"colspan="4"><input type="text" readonly ></td>
+                        <td class="photoshope1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="illustrations1"colspan="4"><input type="text" readonly ></td>
+                        <td class="ecns_process1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="operations_manuals1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="hydraulic_illustration1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="electrical_illustraitons1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="spp_list1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="photo_vector1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="model_packages1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="service_manuals1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="wearpart_kits1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="service_kits1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="field_kits1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="asl_books1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="operation_safety1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="f80w_ecnsprocess1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="euro_shatal1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class='checkboxBorder'><input type="checkbox" ></td><td class='checkboxBorder'><input type="checkbox" ></td><td ><input type="text" class="second"></td>
+                    </tr>
+                    <tr>
+                        <td class="pim1"colspan="4"><input type="text" placeholder="14.) Select the countries - press save"readonly ></td>
+                        <td class="tech_doc1"colspan="4"><input type="text" readonly ></td>
+                        <td class="marketing1"colspan="4"><input type="text" readonly ></td>
+                        <td class="aftermarkets1"colspan="4"><input type="text" readonly ></td>
+                        <td class="broucher_flyers1"colspan="4"><input type="text" placeholder="14.) Export the document to pdf format (Print and web formats)" readonly ></td>
+                        <td class="rendered_images1"colspan="4"><input type="text" readonly ></td>
+                        <td class="photoshope1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="illustrations1"colspan="4"><input type="text" readonly ></td>
+                        <td class="ecns_process1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="operations_manuals1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="hydraulic_illustration1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="electrical_illustraitons1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="spp_list1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="photo_vector1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="model_packages1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="service_manuals1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="wearpart_kits1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="service_kits1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="field_kits1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="asl_books1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="operation_safety1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="f80w_ecnsprocess1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="euro_shatal1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class='checkboxBorder'><input type="checkbox" ></td><td class='checkboxBorder'><input type="checkbox" ></td><td ><input type="text" class="second"></td>
+                    </tr>
+                    <tr>
+                        <td class="pim1"colspan="4"><input type="text" placeholder="15.) Publish the datasheet"readonly ></td>
+                        <td class="tech_doc1"colspan="4"><input type="text" readonly ></td>
+                        <td class="marketing1"colspan="4"><input type="text" readonly ></td>
+                        <td class="aftermarkets1"colspan="4"><input type="text" readonly ></td>
+                        <td class="broucher_flyers1"colspan="4"><input type="text" readonly ></td>
+                        <td class="rendered_images1"colspan="4"><input type="text" readonly ></td>
+                        <td class="photoshope1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="illustrations1"colspan="4"><input type="text" readonly ></td>
+                        <td class="ecns_process1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="operations_manuals1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="hydraulic_illustration1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="electrical_illustraitons1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="spp_list1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="photo_vector1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="model_packages1"colspan="4"><input type="text" placeholder=""readonly ></td>  
+                        <td class="service_manuals1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="wearpart_kits1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="service_kits1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="field_kits1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="asl_books1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="operation_safety1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="f80w_ecnsprocess1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="euro_shatal1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class='checkboxBorder'><input type="checkbox" ></td><td class='checkboxBorder'><input type="checkbox" ></td><td ><input type="text" class="second"></td>
+                    </tr>
+                    <tr>
+                        <td class="pim1"colspan="4"><input type="text" placeholder="16.) Note:  Please save after each step."readonly ></td>
+                        <td class="tech_doc1"colspan="4"><input type="text" readonly ></td>
+                        <td class="marketing1"colspan="4"><input type="text" readonly ></td>
+                        <td class="aftermarkets1"colspan="4"><input type="text" readonly ></td>
+                        <td class="broucher_flyers1"colspan="4"><input type="text" readonly ></td>
+                        <td class="rendered_images1"colspan="4"><input type="text" readonly ></td>
+                        <td class="photoshope1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="illustrations1"colspan="4"><input type="text" readonly ></td>
+                        <td class="ecns_process1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="operations_manuals1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="hydraulic_illustration1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="electrical_illustraitons1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="spp_list1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="photo_vector1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="model_packages1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="service_manuals1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="wearpart_kits1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="service_kits1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="field_kits1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="asl_books1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="operation_safety1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="f80w_ecnsprocess1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class="euro_shatal1"colspan="4"><input type="text" placeholder=""readonly ></td>
+                        <td class='checkboxBorder'><input type="checkbox" ></td><td class='checkboxBorder'><input type="checkbox" ></td><td><input type="text" class="second"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" style="background-color: orange;text-align: center;font-weight: bold;margin: 0px;">Value Addition</td>
+                        <td><input type="" readonly></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4"><textarea type="text" style=" width: 100%; border: none; height: 66px; font-size: 13px;"></textarea></td>
+                        <td><textarea type="text" style=" width: 100%; border: none; height: 66px; font-size: 13px;"></textarea></td>
+                        <td><textarea type="text" style=" width: 100%; border: none; height: 66px; font-size: 13px;"></textarea></td>
+                        <td><textarea type="text" style=" width: 100%; border: none; height: 66px; font-size: 13px;"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4"></td>
+                        <td>
+                            <select id = "tssname">
+                                <option value = "ename" >Error Tracker</option>
+                                <option value = "fname">Option 1</option>
+                                <option value = "gname">Option 2</option>
+                                <option value = "hname">Option 3</option>
+                            </select> 
+                        </td>
+                        <td colspan="3"><input type="text" id="et"></td>
+                        
+                    </tr>
+                    <tr>
+                        <td colspan="4"></td>
+                        <!-- <td style="text-align: center; margin:2px;"><input type="button" class="btn btn-primary"
+                            onclick="GeneratePdf();" value="1st QC" style="height: 30px; width: 79px;"></td> -->
+                        <td style="text-align: center; margin:2px;"><a href="javascript:window.print()" class="btn btn-primary" >1st QC</a></td>
+                        <td style="text-align: center; margin:2px;"><a href="javascript:window.print()" class="btn btn-primary" >2nd QC</a></td>
+                        <td></td>
+                    </tr>
+                    
+                </table>
+            </div>
+                <p>&nbsp;</p>
+				
+	<script>		
+		// Function to GeneratePdf
+		function GeneratePdf() {
+			var element = document.getElementById('form-print');
+			html2pdf(element);
+		}
+        function showDiv(element)
+            {
+                var divId = element.value;
+                var redirectDiv = element.value+'1';
+                if(divId=='pim'){
+                    var a =document.getElementsByClassName("tech_doc1");
+                    for(var i=0, len=a.length; i<len; i++) {
+                    a[i].style["display"] = 'none'; }
+                    var b =document.getElementsByClassName("marketing1");
+                    for(var i=0, len=b.length; i<len; i++) {
+                    b[i].style["display"] = 'none'; }
+                    var c =document.getElementsByClassName("aftermarkets1");
+                    for(var i=0, len=c.length; i<len; i++) {
+                    c[i].style["display"] = 'none'; }
+                    var d =document.getElementsByClassName("broucher_flyers1");
+                    for(var i=0, len=d.length; i<len; i++) {
+                    d[i].style["display"] = 'none'; }
+                    var e =document.getElementsByClassName("rendered_images1");
+                    for(var i=0, len=e.length; i<len; i++) {
+                    e[i].style["display"] = 'none'; }
+                    var f =document.getElementsByClassName("photoshope1");
+                    for(var i=0, len=f.length; i<len; i++) {
+                    f[i].style["display"] = 'none'; }
+                    var g =document.getElementsByClassName("illustrations1");
+                    for(var i=0, len=g.length; i<len; i++) {
+                    g[i].style["display"] = 'none'; } 
+                    var h =document.getElementsByClassName("ecns_process1");
+                    for(var i=0, len=h.length; i<len; i++) {
+                    h[i].style["display"] = 'none'; } 
+                    var j =document.getElementsByClassName("operations_manuals1");
+                    for(var i=0, len=j.length; i<len; i++) {
+                    j[i].style["display"] = 'none'; }
+                    var k =document.getElementsByClassName("hydraulic_illustration1");
+                    for(var i=0, len=k.length; i<len; i++) {
+                    k[i].style["display"] = 'none'; }
+                    var l =document.getElementsByClassName("electrical_illustraitons1");
+                    for(var i=0, len=l.length; i<len; i++) {
+                    l[i].style["display"] = 'none'; }
+                    var m =document.getElementsByClassName("spp_list1");
+                    for(var i=0, len=m.length; i<len; i++) {
+                    m[i].style["display"] = 'none'; }
+                    var n =document.getElementsByClassName("photo_vector1");
+                    for(var i=0, len=n.length; i<len; i++) {
+                    n[i].style["display"] = 'none'; }
+                    var o =document.getElementsByClassName("model_packages");
+                    for(var i=0, len=o.length; i<len; i++) {
+                    o[i].style["display"] = 'none'; }
+                    var p =document.getElementsByClassName("service_manuals1");
+                    for(var i=0, len=p.length; i<len; i++) {
+                    p[i].style["display"] = 'none'; }
+                    var q =document.getElementsByClassName("wearpart_kits1");
+                    for(var i=0, len=q.length; i<len; i++) {
+                    q[i].style["display"] = 'none'; }
+                    var r =document.getElementsByClassName("service_kits1");
+                    for(var i=0, len=r.length; i<len; i++) {
+                    r[i].style["display"] = 'none'; }
+                    var s =document.getElementsByClassName("field_kits1");
+                    for(var i=0, len=s.length; i<len; i++) {
+                    s[i].style["display"] = 'none'; }
+                    var t =document.getElementsByClassName("asl_books1");
+                    for(var i=0, len=t.length; i<len; i++) {
+                    t[i].style["display"] = 'none'; }
+                    var u =document.getElementsByClassName("operation_safety1");
+                    for(var i=0, len=u.length; i<len; i++) {
+                    u[i].style["display"] = 'none'; }
+                    var v =document.getElementsByClassName("f80w_ecnsprocess1");
+                    for(var i=0, len=v.length; i<len; i++) {
+                    v[i].style["display"] = 'none'; }
+                    var w =document.getElementsByClassName("euro_shatal1");
+                    for(var i=0, len=w.length; i<len; i++) {
+                    w[i].style["display"] = 'none'; }
+                    var x =document.getElementsByClassName(redirectDiv);
+                    for(var i=0, len=x.length; i<len; i++) {
+                    x[i].style["display"] = 'revert'; }
+                }else if(divId=='tech_doc'){
+                    var a =document.getElementsByClassName("pim1");
+                    for(var i=0, len=a.length; i<len; i++) {
+                    a[i].style["display"] = 'none'; }
+                    var b =document.getElementsByClassName("marketing1");
+                    for(var i=0, len=b.length; i<len; i++) {
+                    b[i].style["display"] = 'none'; }
+                    var c =document.getElementsByClassName("aftermarkets1");
+                    for(var i=0, len=c.length; i<len; i++) {
+                    c[i].style["display"] = 'none'; }
+                    var d =document.getElementsByClassName("broucher_flyers1");
+                    for(var i=0, len=d.length; i<len; i++) {
+                    d[i].style["display"] = 'none'; }
+                    var e =document.getElementsByClassName("rendered_images1");
+                    for(var i=0, len=e.length; i<len; i++) {
+                    e[i].style["display"] = 'none'; }
+                    var f =document.getElementsByClassName("photoshope1");
+                    for(var i=0, len=f.length; i<len; i++) {
+                    f[i].style["display"] = 'none'; }
+                    var g =document.getElementsByClassName("illustrations1");
+                    for(var i=0, len=g.length; i<len; i++) {
+                    g[i].style["display"] = 'none'; } 
+                    var h =document.getElementsByClassName("ecns_process1");
+                    for(var i=0, len=h.length; i<len; i++) {
+                    h[i].style["display"] = 'none'; } 
+                    var j =document.getElementsByClassName("operations_manuals1");
+                    for(var i=0, len=j.length; i<len; i++) {
+                    j[i].style["display"] = 'none'; }
+                    var k =document.getElementsByClassName("hydraulic_illustration1");
+                    for(var i=0, len=k.length; i<len; i++) {
+                    k[i].style["display"] = 'none'; }
+                    var l =document.getElementsByClassName("electrical_illustraitons1");
+                    for(var i=0, len=l.length; i<len; i++) {
+                    l[i].style["display"] = 'none'; }
+                    var m =document.getElementsByClassName("spp_list1");
+                    for(var i=0, len=m.length; i<len; i++) {
+                    m[i].style["display"] = 'none'; }
+                    var n =document.getElementsByClassName("photo_vector1");
+                    for(var i=0, len=n.length; i<len; i++) {
+                    n[i].style["display"] = 'none'; }
+                    var o =document.getElementsByClassName("model_packages");
+                    for(var i=0, len=o.length; i<len; i++) {
+                    o[i].style["display"] = 'none'; }
+                    var p =document.getElementsByClassName("service_manuals1");
+                    for(var i=0, len=p.length; i<len; i++) {
+                    p[i].style["display"] = 'none'; }
+                    var q =document.getElementsByClassName("wearpart_kits1");
+                    for(var i=0, len=q.length; i<len; i++) {
+                    q[i].style["display"] = 'none'; }
+                    var r =document.getElementsByClassName("service_kits1");
+                    for(var i=0, len=r.length; i<len; i++) {
+                    r[i].style["display"] = 'none'; }
+                    var s =document.getElementsByClassName("field_kits1");
+                    for(var i=0, len=s.length; i<len; i++) {
+                    s[i].style["display"] = 'none'; }
+                    var t =document.getElementsByClassName("asl_books1");
+                    for(var i=0, len=t.length; i<len; i++) {
+                    t[i].style["display"] = 'none'; }
+                    var u =document.getElementsByClassName("operation_safety1");
+                    for(var i=0, len=u.length; i<len; i++) {
+                    u[i].style["display"] = 'none'; }
+                    var v =document.getElementsByClassName("f80w_ecnsprocess1");
+                    for(var i=0, len=v.length; i<len; i++) {
+                    v[i].style["display"] = 'none'; }
+                    var w =document.getElementsByClassName("euro_shatal1");
+                    for(var i=0, len=w.length; i<len; i++) {
+                    w[i].style["display"] = 'none'; }
+                    var x =document.getElementsByClassName(redirectDiv);
+                    for(var i=0, len=x.length; i<len; i++) {
+                    x[i].style["display"] = 'revert'; }
+                }else if(divId=='marketing'){
+                    var a =document.getElementsByClassName("tech_doc1");
+                    for(var i=0, len=a.length; i<len; i++) {
+                    a[i].style["display"] = 'none'; }
+                    var b =document.getElementsByClassName("pim1");
+                    for(var i=0, len=b.length; i<len; i++) {
+                    b[i].style["display"] = 'none'; }
+                    var c =document.getElementsByClassName("aftermarkets1");
+                    for(var i=0, len=c.length; i<len; i++) {
+                    c[i].style["display"] = 'none'; }
+                    var d =document.getElementsByClassName("broucher_flyers1");
+                    for(var i=0, len=d.length; i<len; i++) {
+                    d[i].style["display"] = 'none'; }
+                    var e =document.getElementsByClassName("rendered_images1");
+                    for(var i=0, len=e.length; i<len; i++) {
+                    e[i].style["display"] = 'none'; }
+                    var f =document.getElementsByClassName("photoshope1");
+                    for(var i=0, len=f.length; i<len; i++) {
+                    f[i].style["display"] = 'none'; }
+                    var g =document.getElementsByClassName("illustrations1");
+                    for(var i=0, len=g.length; i<len; i++) {
+                    g[i].style["display"] = 'none'; } 
+                    var h =document.getElementsByClassName("ecns_process1");
+                    for(var i=0, len=h.length; i<len; i++) {
+                    h[i].style["display"] = 'none'; } 
+                    var j =document.getElementsByClassName("operations_manuals1");
+                    for(var i=0, len=j.length; i<len; i++) {
+                    j[i].style["display"] = 'none'; }
+                    var k =document.getElementsByClassName("hydraulic_illustration1");
+                    for(var i=0, len=k.length; i<len; i++) {
+                    k[i].style["display"] = 'none'; }
+                    var l =document.getElementsByClassName("electrical_illustraitons1");
+                    for(var i=0, len=l.length; i<len; i++) {
+                    l[i].style["display"] = 'none'; }
+                    var m =document.getElementsByClassName("spp_list1");
+                    for(var i=0, len=m.length; i<len; i++) {
+                    m[i].style["display"] = 'none'; }
+                    var n =document.getElementsByClassName("photo_vector1");
+                    for(var i=0, len=n.length; i<len; i++) {
+                    n[i].style["display"] = 'none'; }
+                    var o =document.getElementsByClassName("model_packages");
+                    for(var i=0, len=o.length; i<len; i++) {
+                    o[i].style["display"] = 'none'; }
+                    var p =document.getElementsByClassName("service_manuals1");
+                    for(var i=0, len=p.length; i<len; i++) {
+                    p[i].style["display"] = 'none'; }
+                    var q =document.getElementsByClassName("wearpart_kits1");
+                    for(var i=0, len=q.length; i<len; i++) {
+                    q[i].style["display"] = 'none'; }
+                    var r =document.getElementsByClassName("service_kits1");
+                    for(var i=0, len=r.length; i<len; i++) {
+                    r[i].style["display"] = 'none'; }
+                    var s =document.getElementsByClassName("field_kits1");
+                    for(var i=0, len=s.length; i<len; i++) {
+                    s[i].style["display"] = 'none'; }
+                    var t =document.getElementsByClassName("asl_books1");
+                    for(var i=0, len=t.length; i<len; i++) {
+                    t[i].style["display"] = 'none'; }
+                    var u =document.getElementsByClassName("operation_safety1");
+                    for(var i=0, len=u.length; i<len; i++) {
+                    u[i].style["display"] = 'none'; }
+                    var v =document.getElementsByClassName("f80w_ecnsprocess1");
+                    for(var i=0, len=v.length; i<len; i++) {
+                    v[i].style["display"] = 'none'; }
+                    var w =document.getElementsByClassName("euro_shatal1");
+                    for(var i=0, len=w.length; i<len; i++) {
+                    w[i].style["display"] = 'none'; }
+                    var x =document.getElementsByClassName(redirectDiv);
+                    for(var i=0, len=x.length; i<len; i++) {
+                    x[i].style["display"] = 'revert'; }
+                }
+                else if(divId=='aftermarkets'){
+                    var a =document.getElementsByClassName("tech_doc1");
+                    for(var i=0, len=a.length; i<len; i++) {
+                    a[i].style["display"] = 'none'; }
+                    var b =document.getElementsByClassName("pim1");
+                    for(var i=0, len=b.length; i<len; i++) {
+                    b[i].style["display"] = 'none'; }
+                    var c =document.getElementsByClassName("marketing1");
+                    for(var i=0, len=c.length; i<len; i++) {
+                    c[i].style["display"] = 'none'; }
+                    var d =document.getElementsByClassName("broucher_flyers1");
+                    for(var i=0, len=d.length; i<len; i++) {
+                    d[i].style["display"] = 'none'; }
+                    var e =document.getElementsByClassName("rendered_images1");
+                    for(var i=0, len=e.length; i<len; i++) {
+                    e[i].style["display"] = 'none'; }
+                    var f =document.getElementsByClassName("photoshope1");
+                    for(var i=0, len=f.length; i<len; i++) {
+                    f[i].style["display"] = 'none'; }
+                    var g =document.getElementsByClassName("illustrations1");
+                    for(var i=0, len=g.length; i<len; i++) {
+                    g[i].style["display"] = 'none'; } 
+                    var h =document.getElementsByClassName("ecns_process1");
+                    for(var i=0, len=h.length; i<len; i++) {
+                    h[i].style["display"] = 'none'; } 
+                    var j =document.getElementsByClassName("operations_manuals1");
+                    for(var i=0, len=j.length; i<len; i++) {
+                    j[i].style["display"] = 'none'; }
+                    var k =document.getElementsByClassName("hydraulic_illustration1");
+                    for(var i=0, len=k.length; i<len; i++) {
+                    k[i].style["display"] = 'none'; }
+                    var l =document.getElementsByClassName("electrical_illustraitons1");
+                    for(var i=0, len=l.length; i<len; i++) {
+                    l[i].style["display"] = 'none'; }
+                    var m =document.getElementsByClassName("spp_list1");
+                    for(var i=0, len=m.length; i<len; i++) {
+                    m[i].style["display"] = 'none'; }
+                    var n =document.getElementsByClassName("photo_vector1");
+                    for(var i=0, len=n.length; i<len; i++) {
+                    n[i].style["display"] = 'none'; }
+                    var o =document.getElementsByClassName("model_packages");
+                    for(var i=0, len=o.length; i<len; i++) {
+                    o[i].style["display"] = 'none'; }
+                    var p =document.getElementsByClassName("service_manuals1");
+                    for(var i=0, len=p.length; i<len; i++) {
+                    p[i].style["display"] = 'none'; }
+                    var q =document.getElementsByClassName("wearpart_kits1");
+                    for(var i=0, len=q.length; i<len; i++) {
+                    q[i].style["display"] = 'none'; }
+                    var r =document.getElementsByClassName("service_kits1");
+                    for(var i=0, len=r.length; i<len; i++) {
+                    r[i].style["display"] = 'none'; }
+                    var s =document.getElementsByClassName("field_kits1");
+                    for(var i=0, len=s.length; i<len; i++) {
+                    s[i].style["display"] = 'none'; }
+                    var t =document.getElementsByClassName("asl_books1");
+                    for(var i=0, len=t.length; i<len; i++) {
+                    t[i].style["display"] = 'none'; }
+                    var u =document.getElementsByClassName("operation_safety1");
+                    for(var i=0, len=u.length; i<len; i++) {
+                    u[i].style["display"] = 'none'; }
+                    var v =document.getElementsByClassName("f80w_ecnsprocess1");
+                    for(var i=0, len=v.length; i<len; i++) {
+                    v[i].style["display"] = 'none'; }
+                    var w =document.getElementsByClassName("euro_shatal1");
+                    for(var i=0, len=w.length; i<len; i++) {
+                    w[i].style["display"] = 'none'; }
+                    var x =document.getElementsByClassName(redirectDiv);
+                    for(var i=0, len=x.length; i<len; i++) {
+                    x[i].style["display"] = 'revert'; }
+                }else if(divId=='broucher_flyers'){
+                    var a =document.getElementsByClassName("tech_doc1");
+                    for(var i=0, len=a.length; i<len; i++) {
+                    a[i].style["display"] = 'none'; }
+                    var b =document.getElementsByClassName("pim1");
+                    for(var i=0, len=b.length; i<len; i++) {
+                    b[i].style["display"] = 'none'; }
+                    var c =document.getElementsByClassName("marketing1");
+                    for(var i=0, len=c.length; i<len; i++) {
+                    c[i].style["display"] = 'none'; }
+                    var d =document.getElementsByClassName("aftermarkets1");
+                    for(var i=0, len=d.length; i<len; i++) {
+                    d[i].style["display"] = 'none'; }
+                    var e =document.getElementsByClassName("rendered_images1");
+                    for(var i=0, len=e.length; i<len; i++) {
+                    e[i].style["display"] = 'none'; }
+                    var f =document.getElementsByClassName("photoshope1");
+                    for(var i=0, len=f.length; i<len; i++) {
+                    f[i].style["display"] = 'none'; }
+                    var g =document.getElementsByClassName("illustrations1");
+                    for(var i=0, len=g.length; i<len; i++) {
+                    g[i].style["display"] = 'none'; } 
+                    var h =document.getElementsByClassName("ecns_process1");
+                    for(var i=0, len=h.length; i<len; i++) {
+                    h[i].style["display"] = 'none'; } 
+                    var j =document.getElementsByClassName("operations_manuals1");
+                    for(var i=0, len=j.length; i<len; i++) {
+                    j[i].style["display"] = 'none'; }
+                    var k =document.getElementsByClassName("hydraulic_illustration1");
+                    for(var i=0, len=k.length; i<len; i++) {
+                    k[i].style["display"] = 'none'; }
+                    var l =document.getElementsByClassName("electrical_illustraitons1");
+                    for(var i=0, len=l.length; i<len; i++) {
+                    l[i].style["display"] = 'none'; }
+                    var m =document.getElementsByClassName("spp_list1");
+                    for(var i=0, len=m.length; i<len; i++) {
+                    m[i].style["display"] = 'none'; }
+                    var n =document.getElementsByClassName("photo_vector1");
+                    for(var i=0, len=n.length; i<len; i++) {
+                    n[i].style["display"] = 'none'; }
+                    var o =document.getElementsByClassName("model_packages");
+                    for(var i=0, len=o.length; i<len; i++) {
+                    o[i].style["display"] = 'none'; }
+                    var p =document.getElementsByClassName("service_manuals1");
+                    for(var i=0, len=p.length; i<len; i++) {
+                    p[i].style["display"] = 'none'; }
+                    var q =document.getElementsByClassName("wearpart_kits1");
+                    for(var i=0, len=q.length; i<len; i++) {
+                    q[i].style["display"] = 'none'; }
+                    var r =document.getElementsByClassName("service_kits1");
+                    for(var i=0, len=r.length; i<len; i++) {
+                    r[i].style["display"] = 'none'; }
+                    var s =document.getElementsByClassName("field_kits1");
+                    for(var i=0, len=s.length; i<len; i++) {
+                    s[i].style["display"] = 'none'; }
+                    var t =document.getElementsByClassName("asl_books1");
+                    for(var i=0, len=t.length; i<len; i++) {
+                    t[i].style["display"] = 'none'; }
+                    var u =document.getElementsByClassName("operation_safety1");
+                    for(var i=0, len=u.length; i<len; i++) {
+                    u[i].style["display"] = 'none'; }
+                    var v =document.getElementsByClassName("f80w_ecnsprocess1");
+                    for(var i=0, len=v.length; i<len; i++) {
+                    v[i].style["display"] = 'none'; }
+                    var w =document.getElementsByClassName("euro_shatal1");
+                    for(var i=0, len=w.length; i<len; i++) {
+                    w[i].style["display"] = 'none'; }
+                    var x =document.getElementsByClassName(redirectDiv);
+                    for(var i=0, len=x.length; i<len; i++) {
+                    x[i].style["display"] = 'revert'; }
+                }else if(divId=='rendered_images'){
+                    var a =document.getElementsByClassName("tech_doc1");
+                    for(var i=0, len=a.length; i<len; i++) {
+                    a[i].style["display"] = 'none'; }
+                    var b =document.getElementsByClassName("pim1");
+                    for(var i=0, len=b.length; i<len; i++) {
+                    b[i].style["display"] = 'none'; }
+                    var c =document.getElementsByClassName("marketing1");
+                    for(var i=0, len=c.length; i<len; i++) {
+                    c[i].style["display"] = 'none'; }
+                    var d =document.getElementsByClassName("aftermarkets1");
+                    for(var i=0, len=d.length; i<len; i++) {
+                    d[i].style["display"] = 'none'; }
+                    var e =document.getElementsByClassName("broucher_flyers1");
+                    for(var i=0, len=e.length; i<len; i++) {
+                    e[i].style["display"] = 'none'; }
+                    var f =document.getElementsByClassName("photoshope1");
+                    for(var i=0, len=f.length; i<len; i++) {
+                    f[i].style["display"] = 'none'; }
+                    var g =document.getElementsByClassName("illustrations1");
+                    for(var i=0, len=g.length; i<len; i++) {
+                    g[i].style["display"] = 'none'; } 
+                    var h =document.getElementsByClassName("ecns_process1");
+                    for(var i=0, len=h.length; i<len; i++) {
+                    h[i].style["display"] = 'none'; } 
+                    var j =document.getElementsByClassName("operations_manuals1");
+                    for(var i=0, len=j.length; i<len; i++) {
+                    j[i].style["display"] = 'none'; }
+                    var k =document.getElementsByClassName("hydraulic_illustration1");
+                    for(var i=0, len=k.length; i<len; i++) {
+                    k[i].style["display"] = 'none'; }
+                    var l =document.getElementsByClassName("electrical_illustraitons1");
+                    for(var i=0, len=l.length; i<len; i++) {
+                    l[i].style["display"] = 'none'; }
+                    var m =document.getElementsByClassName("spp_list1");
+                    for(var i=0, len=m.length; i<len; i++) {
+                    m[i].style["display"] = 'none'; }
+                    var n =document.getElementsByClassName("photo_vector1");
+                    for(var i=0, len=n.length; i<len; i++) {
+                    n[i].style["display"] = 'none'; }
+                    var o =document.getElementsByClassName("model_packages");
+                    for(var i=0, len=o.length; i<len; i++) {
+                    o[i].style["display"] = 'none'; }
+                    var p =document.getElementsByClassName("service_manuals1");
+                    for(var i=0, len=p.length; i<len; i++) {
+                    p[i].style["display"] = 'none'; }
+                    var q =document.getElementsByClassName("wearpart_kits1");
+                    for(var i=0, len=q.length; i<len; i++) {
+                    q[i].style["display"] = 'none'; }
+                    var r =document.getElementsByClassName("service_kits1");
+                    for(var i=0, len=r.length; i<len; i++) {
+                    r[i].style["display"] = 'none'; }
+                    var s =document.getElementsByClassName("field_kits1");
+                    for(var i=0, len=s.length; i<len; i++) {
+                    s[i].style["display"] = 'none'; }
+                    var t =document.getElementsByClassName("asl_books1");
+                    for(var i=0, len=t.length; i<len; i++) {
+                    t[i].style["display"] = 'none'; }
+                    var u =document.getElementsByClassName("operation_safety1");
+                    for(var i=0, len=u.length; i<len; i++) {
+                    u[i].style["display"] = 'none'; }
+                    var v =document.getElementsByClassName("f80w_ecnsprocess1");
+                    for(var i=0, len=v.length; i<len; i++) {
+                    v[i].style["display"] = 'none'; }
+                    var w =document.getElementsByClassName("euro_shatal1");
+                    for(var i=0, len=w.length; i<len; i++) {
+                    w[i].style["display"] = 'none'; }
+                    var x =document.getElementsByClassName(redirectDiv);
+                    for(var i=0, len=x.length; i<len; i++) {
+                    x[i].style["display"] = 'revert'; }
+                }else if(divId=='photoshope'){
+                    var a =document.getElementsByClassName("tech_doc1");
+                    for(var i=0, len=a.length; i<len; i++) {
+                    a[i].style["display"] = 'none'; }
+                    var b =document.getElementsByClassName("pim1");
+                    for(var i=0, len=b.length; i<len; i++) {
+                    b[i].style["display"] = 'none'; }
+                    var c =document.getElementsByClassName("marketing1");
+                    for(var i=0, len=c.length; i<len; i++) {
+                    c[i].style["display"] = 'none'; }
+                    var d =document.getElementsByClassName("aftermarkets1");
+                    for(var i=0, len=d.length; i<len; i++) {
+                    d[i].style["display"] = 'none'; }
+                    var e =document.getElementsByClassName("broucher_flyers1");
+                    for(var i=0, len=e.length; i<len; i++) {
+                    e[i].style["display"] = 'none'; }
+                    var f =document.getElementsByClassName("rendered_images1");
+                    for(var i=0, len=f.length; i<len; i++) {
+                    f[i].style["display"] = 'none'; }
+                    var g =document.getElementsByClassName("illustrations1");
+                    for(var i=0, len=g.length; i<len; i++) {
+                    g[i].style["display"] = 'none'; } 
+                    var h =document.getElementsByClassName("ecns_process1");
+                    for(var i=0, len=h.length; i<len; i++) {
+                    h[i].style["display"] = 'none'; } 
+                    var j =document.getElementsByClassName("operations_manuals1");
+                    for(var i=0, len=j.length; i<len; i++) {
+                    j[i].style["display"] = 'none'; }
+                    var k =document.getElementsByClassName("hydraulic_illustration1");
+                    for(var i=0, len=k.length; i<len; i++) {
+                    k[i].style["display"] = 'none'; }
+                    var l =document.getElementsByClassName("electrical_illustraitons1");
+                    for(var i=0, len=l.length; i<len; i++) {
+                    l[i].style["display"] = 'none'; }
+                    var m =document.getElementsByClassName("spp_list1");
+                    for(var i=0, len=m.length; i<len; i++) {
+                    m[i].style["display"] = 'none'; }
+                    var n =document.getElementsByClassName("photo_vector1");
+                    for(var i=0, len=n.length; i<len; i++) {
+                    n[i].style["display"] = 'none'; }
+                    var o =document.getElementsByClassName("model_packages");
+                    for(var i=0, len=o.length; i<len; i++) {
+                    o[i].style["display"] = 'none'; }
+                    var p =document.getElementsByClassName("service_manuals1");
+                    for(var i=0, len=p.length; i<len; i++) {
+                    p[i].style["display"] = 'none'; }
+                    var q =document.getElementsByClassName("wearpart_kits1");
+                    for(var i=0, len=q.length; i<len; i++) {
+                    q[i].style["display"] = 'none'; }
+                    var r =document.getElementsByClassName("service_kits1");
+                    for(var i=0, len=r.length; i<len; i++) {
+                    r[i].style["display"] = 'none'; }
+                    var s =document.getElementsByClassName("field_kits1");
+                    for(var i=0, len=s.length; i<len; i++) {
+                    s[i].style["display"] = 'none'; }
+                    var t =document.getElementsByClassName("asl_books1");
+                    for(var i=0, len=t.length; i<len; i++) {
+                    t[i].style["display"] = 'none'; }
+                    var u =document.getElementsByClassName("operation_safety1");
+                    for(var i=0, len=u.length; i<len; i++) {
+                    u[i].style["display"] = 'none'; }
+                    var v =document.getElementsByClassName("f80w_ecnsprocess1");
+                    for(var i=0, len=v.length; i<len; i++) {
+                    v[i].style["display"] = 'none'; }
+                    var w =document.getElementsByClassName("euro_shatal1");
+                    for(var i=0, len=w.length; i<len; i++) {
+                    w[i].style["display"] = 'none'; }
+                    var x =document.getElementsByClassName(redirectDiv);
+                    for(var i=0, len=x.length; i<len; i++) {
+                    x[i].style["display"] = 'revert'; }
+                }
+                else if(divId=='illustrations'){
+                    var a =document.getElementsByClassName("tech_doc1");
+                    for(var i=0, len=a.length; i<len; i++) {
+                    a[i].style["display"] = 'none'; }
+                    var b =document.getElementsByClassName("pim1");
+                    for(var i=0, len=b.length; i<len; i++) {
+                    b[i].style["display"] = 'none'; }
+                    var c =document.getElementsByClassName("marketing1");
+                    for(var i=0, len=c.length; i<len; i++) {
+                    c[i].style["display"] = 'none'; }
+                    var d =document.getElementsByClassName("aftermarkets1");
+                    for(var i=0, len=d.length; i<len; i++) {
+                    d[i].style["display"] = 'none'; }
+                    var e =document.getElementsByClassName("broucher_flyers1");
+                    for(var i=0, len=e.length; i<len; i++) {
+                    e[i].style["display"] = 'none'; }
+                    var f =document.getElementsByClassName("rendered_images1");
+                    for(var i=0, len=f.length; i<len; i++) {
+                    f[i].style["display"] = 'none'; }
+                    var g =document.getElementsByClassName("photoshope1");
+                    for(var i=0, len=g.length; i<len; i++) {
+                    g[i].style["display"] = 'none'; }
+                    var h =document.getElementsByClassName("ecns_process1");
+                    for(var i=0, len=h.length; i<len; i++) {
+                    h[i].style["display"] = 'none'; } 
+                    var j =document.getElementsByClassName("operations_manuals1");
+                    for(var i=0, len=j.length; i<len; i++) {
+                    j[i].style["display"] = 'none'; }
+                    var k =document.getElementsByClassName("hydraulic_illustration1");
+                    for(var i=0, len=k.length; i<len; i++) {
+                    k[i].style["display"] = 'none'; }
+                    var l =document.getElementsByClassName("electrical_illustraitons1");
+                    for(var i=0, len=l.length; i<len; i++) {
+                    l[i].style["display"] = 'none'; }
+                    var m =document.getElementsByClassName("spp_list1");
+                    for(var i=0, len=m.length; i<len; i++) {
+                    m[i].style["display"] = 'none'; }
+                    var n =document.getElementsByClassName("photo_vector1");
+                    for(var i=0, len=n.length; i<len; i++) {
+                    n[i].style["display"] = 'none'; }
+                    var o =document.getElementsByClassName("model_packages");
+                    for(var i=0, len=o.length; i<len; i++) {
+                    o[i].style["display"] = 'none'; }
+                    var p =document.getElementsByClassName("service_manuals1");
+                    for(var i=0, len=p.length; i<len; i++) {
+                    p[i].style["display"] = 'none'; }
+                    var q =document.getElementsByClassName("wearpart_kits1");
+                    for(var i=0, len=q.length; i<len; i++) {
+                    q[i].style["display"] = 'none'; }
+                    var r =document.getElementsByClassName("service_kits1");
+                    for(var i=0, len=r.length; i<len; i++) {
+                    r[i].style["display"] = 'none'; }
+                    var s =document.getElementsByClassName("field_kits1");
+                    for(var i=0, len=s.length; i<len; i++) {
+                    s[i].style["display"] = 'none'; }
+                    var t =document.getElementsByClassName("asl_books1");
+                    for(var i=0, len=t.length; i<len; i++) {
+                    t[i].style["display"] = 'none'; }
+                    var u =document.getElementsByClassName("operation_safety1");
+                    for(var i=0, len=u.length; i<len; i++) {
+                    u[i].style["display"] = 'none'; }
+                    var v =document.getElementsByClassName("f80w_ecnsprocess1");
+                    for(var i=0, len=v.length; i<len; i++) {
+                    v[i].style["display"] = 'none'; }
+                    var w =document.getElementsByClassName("euro_shatal1");
+                    for(var i=0, len=w.length; i<len; i++) {
+                    w[i].style["display"] = 'none'; }
+                    var x =document.getElementsByClassName(redirectDiv);
+                    for(var i=0, len=x.length; i<len; i++) {
+                    x[i].style["display"] = 'revert'; }
+                }
+                else if(divId=='ecns_process'){
+                    var a =document.getElementsByClassName("tech_doc1");
+                    for(var i=0, len=a.length; i<len; i++) {
+                    a[i].style["display"] = 'none'; }
+                    var b =document.getElementsByClassName("pim1");
+                    for(var i=0, len=b.length; i<len; i++) {
+                    b[i].style["display"] = 'none'; }
+                    var c =document.getElementsByClassName("marketing1");
+                    for(var i=0, len=c.length; i<len; i++) {
+                    c[i].style["display"] = 'none'; }
+                    var d =document.getElementsByClassName("aftermarkets1");
+                    for(var i=0, len=d.length; i<len; i++) {
+                    d[i].style["display"] = 'none'; }
+                    var e =document.getElementsByClassName("broucher_flyers1");
+                    for(var i=0, len=e.length; i<len; i++) {
+                    e[i].style["display"] = 'none'; }
+                    var f =document.getElementsByClassName("rendered_images1");
+                    for(var i=0, len=f.length; i<len; i++) {
+                    f[i].style["display"] = 'none'; }
+                    var g =document.getElementsByClassName("photoshope1");
+                    for(var i=0, len=g.length; i<len; i++) {
+                    g[i].style["display"] = 'none'; }
+                    var h =document.getElementsByClassName("illustrations1");
+                    for(var i=0, len=h.length; i<len; i++) {
+                    h[i].style["display"] = 'none'; } 
+                    var j =document.getElementsByClassName("operations_manuals1");
+                    for(var i=0, len=j.length; i<len; i++) {
+                    j[i].style["display"] = 'none'; }
+                    var k =document.getElementsByClassName("hydraulic_illustration1");
+                    for(var i=0, len=k.length; i<len; i++) {
+                    k[i].style["display"] = 'none'; }
+                    var l =document.getElementsByClassName("electrical_illustraitons1");
+                    for(var i=0, len=l.length; i<len; i++) {
+                    l[i].style["display"] = 'none'; }
+                    var m =document.getElementsByClassName("spp_list1");
+                    for(var i=0, len=m.length; i<len; i++) {
+                    m[i].style["display"] = 'none'; }
+                    var n =document.getElementsByClassName("photo_vector1");
+                    for(var i=0, len=n.length; i<len; i++) {
+                    n[i].style["display"] = 'none'; }
+                    var o =document.getElementsByClassName("model_packages");
+                    for(var i=0, len=o.length; i<len; i++) {
+                    o[i].style["display"] = 'none'; }
+                    var p =document.getElementsByClassName("service_manuals1");
+                    for(var i=0, len=p.length; i<len; i++) {
+                    p[i].style["display"] = 'none'; }
+                    var q =document.getElementsByClassName("wearpart_kits1");
+                    for(var i=0, len=q.length; i<len; i++) {
+                    q[i].style["display"] = 'none'; }
+                    var r =document.getElementsByClassName("service_kits1");
+                    for(var i=0, len=r.length; i<len; i++) {
+                    r[i].style["display"] = 'none'; }
+                    var s =document.getElementsByClassName("field_kits1");
+                    for(var i=0, len=s.length; i<len; i++) {
+                    s[i].style["display"] = 'none'; }
+                    var t =document.getElementsByClassName("asl_books1");
+                    for(var i=0, len=t.length; i<len; i++) {
+                    t[i].style["display"] = 'none'; }
+                    var u =document.getElementsByClassName("operation_safety1");
+                    for(var i=0, len=u.length; i<len; i++) {
+                    u[i].style["display"] = 'none'; }
+                    var v =document.getElementsByClassName("f80w_ecnsprocess1");
+                    for(var i=0, len=v.length; i<len; i++) {
+                    v[i].style["display"] = 'none'; }
+                    var w =document.getElementsByClassName("euro_shatal1");
+                    for(var i=0, len=w.length; i<len; i++) {
+                    w[i].style["display"] = 'none'; }
+                    var x =document.getElementsByClassName(redirectDiv);
+                    for(var i=0, len=x.length; i<len; i++) {
+                    x[i].style["display"] = 'revert'; }
+                }
+                else if(divId=='operations_manuals'){
+                    var a =document.getElementsByClassName("tech_doc1");
+                    for(var i=0, len=a.length; i<len; i++) {
+                    a[i].style["display"] = 'none'; }
+                    var b =document.getElementsByClassName("pim1");
+                    for(var i=0, len=b.length; i<len; i++) {
+                    b[i].style["display"] = 'none'; }
+                    var c =document.getElementsByClassName("marketing1");
+                    for(var i=0, len=c.length; i<len; i++) {
+                    c[i].style["display"] = 'none'; }
+                    var d =document.getElementsByClassName("aftermarkets1");
+                    for(var i=0, len=d.length; i<len; i++) {
+                    d[i].style["display"] = 'none'; }
+                    var e =document.getElementsByClassName("broucher_flyers1");
+                    for(var i=0, len=e.length; i<len; i++) {
+                    e[i].style["display"] = 'none'; }
+                    var f =document.getElementsByClassName("rendered_images1");
+                    for(var i=0, len=f.length; i<len; i++) {
+                    f[i].style["display"] = 'none'; }
+                    var g =document.getElementsByClassName("photoshope1");
+                    for(var i=0, len=g.length; i<len; i++) {
+                    g[i].style["display"] = 'none'; }
+                    var h =document.getElementsByClassName("illustrations1");
+                    for(var i=0, len=h.length; i<len; i++) {
+                    h[i].style["display"] = 'none'; } 
+                    var j =document.getElementsByClassName("ecns_process1");
+                    for(var i=0, len=j.length; i<len; i++) {
+                    j[i].style["display"] = 'none'; }
+                    var k =document.getElementsByClassName("hydraulic_illustration1");
+                    for(var i=0, len=k.length; i<len; i++) {
+                    k[i].style["display"] = 'none'; }
+                    var l =document.getElementsByClassName("electrical_illustraitons1");
+                    for(var i=0, len=l.length; i<len; i++) {
+                    l[i].style["display"] = 'none'; }
+                    var m =document.getElementsByClassName("spp_list1");
+                    for(var i=0, len=m.length; i<len; i++) {
+                    m[i].style["display"] = 'none'; }
+                    var n =document.getElementsByClassName("photo_vector1");
+                    for(var i=0, len=n.length; i<len; i++) {
+                    n[i].style["display"] = 'none'; }
+                    var o =document.getElementsByClassName("model_packages");
+                    for(var i=0, len=o.length; i<len; i++) {
+                    o[i].style["display"] = 'none'; }
+                    var p =document.getElementsByClassName("service_manuals1");
+                    for(var i=0, len=p.length; i<len; i++) {
+                    p[i].style["display"] = 'none'; }
+                    var q =document.getElementsByClassName("wearpart_kits1");
+                    for(var i=0, len=q.length; i<len; i++) {
+                    q[i].style["display"] = 'none'; }
+                    var r =document.getElementsByClassName("service_kits1");
+                    for(var i=0, len=r.length; i<len; i++) {
+                    r[i].style["display"] = 'none'; }
+                    var s =document.getElementsByClassName("field_kits1");
+                    for(var i=0, len=s.length; i<len; i++) {
+                    s[i].style["display"] = 'none'; }
+                    var t =document.getElementsByClassName("asl_books1");
+                    for(var i=0, len=t.length; i<len; i++) {
+                    t[i].style["display"] = 'none'; }
+                    var u =document.getElementsByClassName("operation_safety1");
+                    for(var i=0, len=u.length; i<len; i++) {
+                    u[i].style["display"] = 'none'; }
+                    var v =document.getElementsByClassName("f80w_ecnsprocess1");
+                    for(var i=0, len=v.length; i<len; i++) {
+                    v[i].style["display"] = 'none'; }
+                    var w =document.getElementsByClassName("euro_shatal1");
+                    for(var i=0, len=w.length; i<len; i++) {
+                    w[i].style["display"] = 'none'; }
+                    var x =document.getElementsByClassName(redirectDiv);
+                    for(var i=0, len=x.length; i<len; i++) {
+                    x[i].style["display"] = 'revert'; }
+                }
+                else if(divId=='hydraulic_illustration'){
+                    var a =document.getElementsByClassName("tech_doc1");
+                    for(var i=0, len=a.length; i<len; i++) {
+                    a[i].style["display"] = 'none'; }
+                    var b =document.getElementsByClassName("pim1");
+                    for(var i=0, len=b.length; i<len; i++) {
+                    b[i].style["display"] = 'none'; }
+                    var c =document.getElementsByClassName("marketing1");
+                    for(var i=0, len=c.length; i<len; i++) {
+                    c[i].style["display"] = 'none'; }
+                    var d =document.getElementsByClassName("aftermarkets1");
+                    for(var i=0, len=d.length; i<len; i++) {
+                    d[i].style["display"] = 'none'; }
+                    var e =document.getElementsByClassName("broucher_flyers1");
+                    for(var i=0, len=e.length; i<len; i++) {
+                    e[i].style["display"] = 'none'; }
+                    var f =document.getElementsByClassName("rendered_images1");
+                    for(var i=0, len=f.length; i<len; i++) {
+                    f[i].style["display"] = 'none'; }
+                    var g =document.getElementsByClassName("photoshope1");
+                    for(var i=0, len=g.length; i<len; i++) {
+                    g[i].style["display"] = 'none'; }
+                    var h =document.getElementsByClassName("illustrations1");
+                    for(var i=0, len=h.length; i<len; i++) {
+                    h[i].style["display"] = 'none'; } 
+                    var j =document.getElementsByClassName("ecns_process1");
+                    for(var i=0, len=j.length; i<len; i++) {
+                    j[i].style["display"] = 'none'; }
+                    var k =document.getElementsByClassName("operations_manuals1");
+                    for(var i=0, len=k.length; i<len; i++) {
+                    k[i].style["display"] = 'none'; }
+                    var l =document.getElementsByClassName("electrical_illustraitons1");
+                    for(var i=0, len=l.length; i<len; i++) {
+                    l[i].style["display"] = 'none'; }
+                    var m =document.getElementsByClassName("spp_list1");
+                    for(var i=0, len=m.length; i<len; i++) {
+                    m[i].style["display"] = 'none'; }
+                    var n =document.getElementsByClassName("photo_vector1");
+                    for(var i=0, len=n.length; i<len; i++) {
+                    n[i].style["display"] = 'none'; }
+                    var o =document.getElementsByClassName("model_packages");
+                    for(var i=0, len=o.length; i<len; i++) {
+                    o[i].style["display"] = 'none'; }
+                    var p =document.getElementsByClassName("service_manuals1");
+                    for(var i=0, len=p.length; i<len; i++) {
+                    p[i].style["display"] = 'none'; }
+                    var q =document.getElementsByClassName("wearpart_kits1");
+                    for(var i=0, len=q.length; i<len; i++) {
+                    q[i].style["display"] = 'none'; }
+                    var r =document.getElementsByClassName("service_kits1");
+                    for(var i=0, len=r.length; i<len; i++) {
+                    r[i].style["display"] = 'none'; }
+                    var s =document.getElementsByClassName("field_kits1");
+                    for(var i=0, len=s.length; i<len; i++) {
+                    s[i].style["display"] = 'none'; }
+                    var t =document.getElementsByClassName("asl_books1");
+                    for(var i=0, len=t.length; i<len; i++) {
+                    t[i].style["display"] = 'none'; }
+                    var u =document.getElementsByClassName("operation_safety1");
+                    for(var i=0, len=u.length; i<len; i++) {
+                    u[i].style["display"] = 'none'; }
+                    var v =document.getElementsByClassName("f80w_ecnsprocess1");
+                    for(var i=0, len=v.length; i<len; i++) {
+                    v[i].style["display"] = 'none'; }
+                    var w =document.getElementsByClassName("euro_shatal1");
+                    for(var i=0, len=w.length; i<len; i++) {
+                    w[i].style["display"] = 'none'; }
+                    var x =document.getElementsByClassName(redirectDiv);
+                    for(var i=0, len=x.length; i<len; i++) {
+                    x[i].style["display"] = 'revert'; }
+                }
+                else if(divId=='electrical_illustraitons'){
+                    var a =document.getElementsByClassName("tech_doc1");
+                    for(var i=0, len=a.length; i<len; i++) {
+                    a[i].style["display"] = 'none'; }
+                    var b =document.getElementsByClassName("pim1");
+                    for(var i=0, len=b.length; i<len; i++) {
+                    b[i].style["display"] = 'none'; }
+                    var c =document.getElementsByClassName("marketing1");
+                    for(var i=0, len=c.length; i<len; i++) {
+                    c[i].style["display"] = 'none'; }
+                    var d =document.getElementsByClassName("aftermarkets1");
+                    for(var i=0, len=d.length; i<len; i++) {
+                    d[i].style["display"] = 'none'; }
+                    var e =document.getElementsByClassName("broucher_flyers1");
+                    for(var i=0, len=e.length; i<len; i++) {
+                    e[i].style["display"] = 'none'; }
+                    var f =document.getElementsByClassName("rendered_images1");
+                    for(var i=0, len=f.length; i<len; i++) {
+                    f[i].style["display"] = 'none'; }
+                    var g =document.getElementsByClassName("photoshope1");
+                    for(var i=0, len=g.length; i<len; i++) {
+                    g[i].style["display"] = 'none'; }
+                    var h =document.getElementsByClassName("illustrations1");
+                    for(var i=0, len=h.length; i<len; i++) {
+                    h[i].style["display"] = 'none'; } 
+                    var j =document.getElementsByClassName("ecns_process1");
+                    for(var i=0, len=j.length; i<len; i++) {
+                    j[i].style["display"] = 'none'; }
+                    var k =document.getElementsByClassName("operations_manuals1");
+                    for(var i=0, len=k.length; i<len; i++) {
+                    k[i].style["display"] = 'none'; }
+                    var l =document.getElementsByClassName("hydraulic_illustration1");
+                    for(var i=0, len=l.length; i<len; i++) {
+                    l[i].style["display"] = 'none'; }
+                    var m =document.getElementsByClassName("spp_list1");
+                    for(var i=0, len=m.length; i<len; i++) {
+                    m[i].style["display"] = 'none'; }
+                    var n =document.getElementsByClassName("photo_vector1");
+                    for(var i=0, len=n.length; i<len; i++) {
+                    n[i].style["display"] = 'none'; }
+                    var o =document.getElementsByClassName("model_packages");
+                    for(var i=0, len=o.length; i<len; i++) {
+                    o[i].style["display"] = 'none'; }
+                    var p =document.getElementsByClassName("service_manuals1");
+                    for(var i=0, len=p.length; i<len; i++) {
+                    p[i].style["display"] = 'none'; }
+                    var q =document.getElementsByClassName("wearpart_kits1");
+                    for(var i=0, len=q.length; i<len; i++) {
+                    q[i].style["display"] = 'none'; }
+                    var r =document.getElementsByClassName("service_kits1");
+                    for(var i=0, len=r.length; i<len; i++) {
+                    r[i].style["display"] = 'none'; }
+                    var s =document.getElementsByClassName("field_kits1");
+                    for(var i=0, len=s.length; i<len; i++) {
+                    s[i].style["display"] = 'none'; }
+                    var t =document.getElementsByClassName("asl_books1");
+                    for(var i=0, len=t.length; i<len; i++) {
+                    t[i].style["display"] = 'none'; }
+                    var u =document.getElementsByClassName("operation_safety1");
+                    for(var i=0, len=u.length; i<len; i++) {
+                    u[i].style["display"] = 'none'; }
+                    var v =document.getElementsByClassName("f80w_ecnsprocess1");
+                    for(var i=0, len=v.length; i<len; i++) {
+                    v[i].style["display"] = 'none'; }
+                    var w =document.getElementsByClassName("euro_shatal1");
+                    for(var i=0, len=w.length; i<len; i++) {
+                    w[i].style["display"] = 'none'; }
+                    var x =document.getElementsByClassName(redirectDiv);
+                    for(var i=0, len=x.length; i<len; i++) {
+                    x[i].style["display"] = 'revert'; }
+                }
+                else if(divId=='spp_list'){
+                    var a =document.getElementsByClassName("tech_doc1");
+                    for(var i=0, len=a.length; i<len; i++) {
+                    a[i].style["display"] = 'none'; }
+                    var b =document.getElementsByClassName("pim1");
+                    for(var i=0, len=b.length; i<len; i++) {
+                    b[i].style["display"] = 'none'; }
+                    var c =document.getElementsByClassName("marketing1");
+                    for(var i=0, len=c.length; i<len; i++) {
+                    c[i].style["display"] = 'none'; }
+                    var d =document.getElementsByClassName("aftermarkets1");
+                    for(var i=0, len=d.length; i<len; i++) {
+                    d[i].style["display"] = 'none'; }
+                    var e =document.getElementsByClassName("broucher_flyers1");
+                    for(var i=0, len=e.length; i<len; i++) {
+                    e[i].style["display"] = 'none'; }
+                    var f =document.getElementsByClassName("rendered_images1");
+                    for(var i=0, len=f.length; i<len; i++) {
+                    f[i].style["display"] = 'none'; }
+                    var g =document.getElementsByClassName("photoshope1");
+                    for(var i=0, len=g.length; i<len; i++) {
+                    g[i].style["display"] = 'none'; }
+                    var h =document.getElementsByClassName("illustrations1");
+                    for(var i=0, len=h.length; i<len; i++) {
+                    h[i].style["display"] = 'none'; } 
+                    var j =document.getElementsByClassName("ecns_process1");
+                    for(var i=0, len=j.length; i<len; i++) {
+                    j[i].style["display"] = 'none'; }
+                    var k =document.getElementsByClassName("operations_manuals1");
+                    for(var i=0, len=k.length; i<len; i++) {
+                    k[i].style["display"] = 'none'; }
+                    var l =document.getElementsByClassName("hydraulic_illustration1");
+                    for(var i=0, len=l.length; i<len; i++) {
+                    l[i].style["display"] = 'none'; }
+                    var m =document.getElementsByClassName("electrical_illustraitons1");
+                    for(var i=0, len=m.length; i<len; i++) {
+                    m[i].style["display"] = 'none'; }
+                    var n =document.getElementsByClassName("photo_vector1");
+                    for(var i=0, len=n.length; i<len; i++) {
+                    n[i].style["display"] = 'none'; }
+                    var o =document.getElementsByClassName("model_packages");
+                    for(var i=0, len=o.length; i<len; i++) {
+                    o[i].style["display"] = 'none'; }
+                    var p =document.getElementsByClassName("service_manuals1");
+                    for(var i=0, len=p.length; i<len; i++) {
+                    p[i].style["display"] = 'none'; }
+                    var q =document.getElementsByClassName("wearpart_kits1");
+                    for(var i=0, len=q.length; i<len; i++) {
+                    q[i].style["display"] = 'none'; }
+                    var r =document.getElementsByClassName("service_kits1");
+                    for(var i=0, len=r.length; i<len; i++) {
+                    r[i].style["display"] = 'none'; }
+                    var s =document.getElementsByClassName("field_kits1");
+                    for(var i=0, len=s.length; i<len; i++) {
+                    s[i].style["display"] = 'none'; }
+                    var t =document.getElementsByClassName("asl_books1");
+                    for(var i=0, len=t.length; i<len; i++) {
+                    t[i].style["display"] = 'none'; }
+                    var u =document.getElementsByClassName("operation_safety1");
+                    for(var i=0, len=u.length; i<len; i++) {
+                    u[i].style["display"] = 'none'; }
+                    var v =document.getElementsByClassName("f80w_ecnsprocess1");
+                    for(var i=0, len=v.length; i<len; i++) {
+                    v[i].style["display"] = 'none'; }
+                    var w =document.getElementsByClassName("euro_shatal1");
+                    for(var i=0, len=w.length; i<len; i++) {
+                    w[i].style["display"] = 'none'; }
+                    var x =document.getElementsByClassName(redirectDiv);
+                    for(var i=0, len=x.length; i<len; i++) {
+                    x[i].style["display"] = 'revert'; }
+                }
+                else if(divId=='photo_vector'){
+                    var a =document.getElementsByClassName("tech_doc1");
+                    for(var i=0, len=a.length; i<len; i++) {
+                    a[i].style["display"] = 'none'; }
+                    var b =document.getElementsByClassName("pim1");
+                    for(var i=0, len=b.length; i<len; i++) {
+                    b[i].style["display"] = 'none'; }
+                    var c =document.getElementsByClassName("marketing1");
+                    for(var i=0, len=c.length; i<len; i++) {
+                    c[i].style["display"] = 'none'; }
+                    var d =document.getElementsByClassName("aftermarkets1");
+                    for(var i=0, len=d.length; i<len; i++) {
+                    d[i].style["display"] = 'none'; }
+                    var e =document.getElementsByClassName("broucher_flyers1");
+                    for(var i=0, len=e.length; i<len; i++) {
+                    e[i].style["display"] = 'none'; }
+                    var f =document.getElementsByClassName("rendered_images1");
+                    for(var i=0, len=f.length; i<len; i++) {
+                    f[i].style["display"] = 'none'; }
+                    var g =document.getElementsByClassName("photoshope1");
+                    for(var i=0, len=g.length; i<len; i++) {
+                    g[i].style["display"] = 'none'; }
+                    var h =document.getElementsByClassName("illustrations1");
+                    for(var i=0, len=h.length; i<len; i++) {
+                    h[i].style["display"] = 'none'; } 
+                    var j =document.getElementsByClassName("ecns_process1");
+                    for(var i=0, len=j.length; i<len; i++) {
+                    j[i].style["display"] = 'none'; }
+                    var k =document.getElementsByClassName("operations_manuals1");
+                    for(var i=0, len=k.length; i<len; i++) {
+                    k[i].style["display"] = 'none'; }
+                    var l =document.getElementsByClassName("hydraulic_illustration1");
+                    for(var i=0, len=l.length; i<len; i++) {
+                    l[i].style["display"] = 'none'; }
+                    var m =document.getElementsByClassName("electrical_illustraitons1");
+                    for(var i=0, len=m.length; i<len; i++) {
+                    m[i].style["display"] = 'none'; }
+                    var n =document.getElementsByClassName("spp_list1");
+                    for(var i=0, len=n.length; i<len; i++) {
+                    n[i].style["display"] = 'none'; }
+                    var o =document.getElementsByClassName("model_packages1");
+                    for(var i=0, len=o.length; i<len; i++) {
+                    o[i].style["display"] = 'none'; }
+                    var p =document.getElementsByClassName("service_manuals1");
+                    for(var i=0, len=p.length; i<len; i++) {
+                    p[i].style["display"] = 'none'; }
+                    var q =document.getElementsByClassName("wearpart_kits1");
+                    for(var i=0, len=q.length; i<len; i++) {
+                    q[i].style["display"] = 'none'; }
+                    var r =document.getElementsByClassName("service_kits1");
+                    for(var i=0, len=r.length; i<len; i++) {
+                    r[i].style["display"] = 'none'; }
+                    var s =document.getElementsByClassName("field_kits1");
+                    for(var i=0, len=s.length; i<len; i++) {
+                    s[i].style["display"] = 'none'; }
+                    var t =document.getElementsByClassName("asl_books1");
+                    for(var i=0, len=t.length; i<len; i++) {
+                    t[i].style["display"] = 'none'; }
+                    var u =document.getElementsByClassName("operation_safety1");
+                    for(var i=0, len=u.length; i<len; i++) {
+                    u[i].style["display"] = 'none'; }
+                    var v =document.getElementsByClassName("f80w_ecnsprocess1");
+                    for(var i=0, len=v.length; i<len; i++) {
+                    v[i].style["display"] = 'none'; }
+                    var w =document.getElementsByClassName("euro_shatal1");
+                    for(var i=0, len=w.length; i<len; i++) {
+                    w[i].style["display"] = 'none'; }
+                    var x =document.getElementsByClassName(redirectDiv);
+                    for(var i=0, len=x.length; i<len; i++) {
+                    x[i].style["display"] = 'revert'; }
+                }
+                else if(divId=='model_packages'){
+                    var a =document.getElementsByClassName("tech_doc1");
+                    for(var i=0, len=a.length; i<len; i++) {
+                    a[i].style["display"] = 'none'; }
+                    var b =document.getElementsByClassName("pim1");
+                    for(var i=0, len=b.length; i<len; i++) {
+                    b[i].style["display"] = 'none'; }
+                    var c =document.getElementsByClassName("marketing1");
+                    for(var i=0, len=c.length; i<len; i++) {
+                    c[i].style["display"] = 'none'; }
+                    var d =document.getElementsByClassName("aftermarkets1");
+                    for(var i=0, len=d.length; i<len; i++) {
+                    d[i].style["display"] = 'none'; }
+                    var e =document.getElementsByClassName("broucher_flyers1");
+                    for(var i=0, len=e.length; i<len; i++) {
+                    e[i].style["display"] = 'none'; }
+                    var f =document.getElementsByClassName("rendered_images1");
+                    for(var i=0, len=f.length; i<len; i++) {
+                    f[i].style["display"] = 'none'; }
+                    var g =document.getElementsByClassName("photoshope1");
+                    for(var i=0, len=g.length; i<len; i++) {
+                    g[i].style["display"] = 'none'; }
+                    var h =document.getElementsByClassName("illustrations1");
+                    for(var i=0, len=h.length; i<len; i++) {
+                    h[i].style["display"] = 'none'; } 
+                    var j =document.getElementsByClassName("ecns_process1");
+                    for(var i=0, len=j.length; i<len; i++) {
+                    j[i].style["display"] = 'none'; }
+                    var k =document.getElementsByClassName("operations_manuals1");
+                    for(var i=0, len=k.length; i<len; i++) {
+                    k[i].style["display"] = 'none'; }
+                    var l =document.getElementsByClassName("hydraulic_illustration1");
+                    for(var i=0, len=l.length; i<len; i++) {
+                    l[i].style["display"] = 'none'; }
+                    var m =document.getElementsByClassName("electrical_illustraitons1");
+                    for(var i=0, len=m.length; i<len; i++) {
+                    m[i].style["display"] = 'none'; }
+                    var n =document.getElementsByClassName("spp_list1");
+                    for(var i=0, len=n.length; i<len; i++) {
+                    n[i].style["display"] = 'none'; }
+                    var o =document.getElementsByClassName("photo_vector1");
+                    for(var i=0, len=o.length; i<len; i++) {
+                    o[i].style["display"] = 'none'; }
+                    var p =document.getElementsByClassName("service_manuals1");
+                    for(var i=0, len=p.length; i<len; i++) {
+                    p[i].style["display"] = 'none'; }
+                    var q =document.getElementsByClassName("wearpart_kits1");
+                    for(var i=0, len=q.length; i<len; i++) {
+                    q[i].style["display"] = 'none'; }
+                    var r =document.getElementsByClassName("service_kits1");
+                    for(var i=0, len=r.length; i<len; i++) {
+                    r[i].style["display"] = 'none'; }
+                    var s =document.getElementsByClassName("field_kits1");
+                    for(var i=0, len=s.length; i<len; i++) {
+                    s[i].style["display"] = 'none'; }
+                    var t =document.getElementsByClassName("asl_books1");
+                    for(var i=0, len=t.length; i<len; i++) {
+                    t[i].style["display"] = 'none'; }
+                    var u =document.getElementsByClassName("operation_safety1");
+                    for(var i=0, len=u.length; i<len; i++) {
+                    u[i].style["display"] = 'none'; }
+                    var v =document.getElementsByClassName("f80w_ecnsprocess1");
+                    for(var i=0, len=v.length; i<len; i++) {
+                    v[i].style["display"] = 'none'; }
+                    var w =document.getElementsByClassName("euro_shatal1");
+                    for(var i=0, len=w.length; i<len; i++) {
+                    w[i].style["display"] = 'none'; }
+                    var x =document.getElementsByClassName(redirectDiv);
+                    for(var i=0, len=x.length; i<len; i++) {
+                    x[i].style["display"] = 'revert'; }   
+                }
+                else if(divId=='service_manuals'){
+                    var a =document.getElementsByClassName("tech_doc1");
+                    for(var i=0, len=a.length; i<len; i++) {
+                    a[i].style["display"] = 'none'; }
+                    var b =document.getElementsByClassName("pim1");
+                    for(var i=0, len=b.length; i<len; i++) {
+                    b[i].style["display"] = 'none'; }
+                    var c =document.getElementsByClassName("marketing1");
+                    for(var i=0, len=c.length; i<len; i++) {
+                    c[i].style["display"] = 'none'; }
+                    var d =document.getElementsByClassName("aftermarkets1");
+                    for(var i=0, len=d.length; i<len; i++) {
+                    d[i].style["display"] = 'none'; }
+                    var e =document.getElementsByClassName("broucher_flyers1");
+                    for(var i=0, len=e.length; i<len; i++) {
+                    e[i].style["display"] = 'none'; }
+                    var f =document.getElementsByClassName("rendered_images1");
+                    for(var i=0, len=f.length; i<len; i++) {
+                    f[i].style["display"] = 'none'; }
+                    var g =document.getElementsByClassName("photoshope1");
+                    for(var i=0, len=g.length; i<len; i++) {
+                    g[i].style["display"] = 'none'; }
+                    var h =document.getElementsByClassName("illustrations1");
+                    for(var i=0, len=h.length; i<len; i++) {
+                    h[i].style["display"] = 'none'; } 
+                    var j =document.getElementsByClassName("ecns_process1");
+                    for(var i=0, len=j.length; i<len; i++) {
+                    j[i].style["display"] = 'none'; }
+                    var k =document.getElementsByClassName("operations_manuals1");
+                    for(var i=0, len=k.length; i<len; i++) {
+                    k[i].style["display"] = 'none'; }
+                    var l =document.getElementsByClassName("hydraulic_illustration1");
+                    for(var i=0, len=l.length; i<len; i++) {
+                    l[i].style["display"] = 'none'; }
+                    var m =document.getElementsByClassName("electrical_illustraitons1");
+                    for(var i=0, len=m.length; i<len; i++) {
+                    m[i].style["display"] = 'none'; }
+                    var n =document.getElementsByClassName("spp_list1");
+                    for(var i=0, len=n.length; i<len; i++) {
+                    n[i].style["display"] = 'none'; }
+                    var o =document.getElementsByClassName("photo_vector1");
+                    for(var i=0, len=o.length; i<len; i++) {
+                    o[i].style["display"] = 'none'; }
+                    var p =document.getElementsByClassName("model_packages1");
+                    for(var i=0, len=p.length; i<len; i++) {
+                    p[i].style["display"] = 'none'; }
+                    var q =document.getElementsByClassName("wearpart_kits1");
+                    for(var i=0, len=q.length; i<len; i++) {
+                    q[i].style["display"] = 'none'; }
+                    var r =document.getElementsByClassName("service_kits1");
+                    for(var i=0, len=r.length; i<len; i++) {
+                    r[i].style["display"] = 'none'; }
+                    var s =document.getElementsByClassName("field_kits1");
+                    for(var i=0, len=s.length; i<len; i++) {
+                    s[i].style["display"] = 'none'; }
+                    var t =document.getElementsByClassName("asl_books1");
+                    for(var i=0, len=t.length; i<len; i++) {
+                    t[i].style["display"] = 'none'; }
+                    var u =document.getElementsByClassName("operation_safety1");
+                    for(var i=0, len=u.length; i<len; i++) {
+                    u[i].style["display"] = 'none'; }
+                    var v =document.getElementsByClassName("f80w_ecnsprocess1");
+                    for(var i=0, len=v.length; i<len; i++) {
+                    v[i].style["display"] = 'none'; }
+                    var w =document.getElementsByClassName("euro_shatal1");
+                    for(var i=0, len=w.length; i<len; i++) {
+                    w[i].style["display"] = 'none'; }
+                    var x =document.getElementsByClassName(redirectDiv);
+                    for(var i=0, len=x.length; i<len; i++) {
+                    x[i].style["display"] = 'revert'; }  
+                }
+                else if(divId=='wearpart_kits'){
+                    var a =document.getElementsByClassName("tech_doc1");
+                    for(var i=0, len=a.length; i<len; i++) {
+                    a[i].style["display"] = 'none'; }
+                    var b =document.getElementsByClassName("pim1");
+                    for(var i=0, len=b.length; i<len; i++) {
+                    b[i].style["display"] = 'none'; }
+                    var c =document.getElementsByClassName("marketing1");
+                    for(var i=0, len=c.length; i<len; i++) {
+                    c[i].style["display"] = 'none'; }
+                    var d =document.getElementsByClassName("aftermarkets1");
+                    for(var i=0, len=d.length; i<len; i++) {
+                    d[i].style["display"] = 'none'; }
+                    var e =document.getElementsByClassName("broucher_flyers1");
+                    for(var i=0, len=e.length; i<len; i++) {
+                    e[i].style["display"] = 'none'; }
+                    var f =document.getElementsByClassName("rendered_images1");
+                    for(var i=0, len=f.length; i<len; i++) {
+                    f[i].style["display"] = 'none'; }
+                    var g =document.getElementsByClassName("photoshope1");
+                    for(var i=0, len=g.length; i<len; i++) {
+                    g[i].style["display"] = 'none'; }
+                    var h =document.getElementsByClassName("illustrations1");
+                    for(var i=0, len=h.length; i<len; i++) {
+                    h[i].style["display"] = 'none'; } 
+                    var j =document.getElementsByClassName("ecns_process1");
+                    for(var i=0, len=j.length; i<len; i++) {
+                    j[i].style["display"] = 'none'; }
+                    var k =document.getElementsByClassName("operations_manuals1");
+                    for(var i=0, len=k.length; i<len; i++) {
+                    k[i].style["display"] = 'none'; }
+                    var l =document.getElementsByClassName("hydraulic_illustration1");
+                    for(var i=0, len=l.length; i<len; i++) {
+                    l[i].style["display"] = 'none'; }
+                    var m =document.getElementsByClassName("electrical_illustraitons1");
+                    for(var i=0, len=m.length; i<len; i++) {
+                    m[i].style["display"] = 'none'; }
+                    var n =document.getElementsByClassName("spp_list1");
+                    for(var i=0, len=n.length; i<len; i++) {
+                    n[i].style["display"] = 'none'; }
+                    var o =document.getElementsByClassName("photo_vector1");
+                    for(var i=0, len=o.length; i<len; i++) {
+                    o[i].style["display"] = 'none'; }
+                    var p =document.getElementsByClassName("model_packages1");
+                    for(var i=0, len=p.length; i<len; i++) {
+                    p[i].style["display"] = 'none'; }
+                    var q =document.getElementsByClassName("service_manuals1");
+                    for(var i=0, len=q.length; i<len; i++) {
+                    q[i].style["display"] = 'none'; }
+                    var r =document.getElementsByClassName("service_kits1");
+                    for(var i=0, len=r.length; i<len; i++) {
+                    r[i].style["display"] = 'none'; }
+                    var s =document.getElementsByClassName("field_kits1");
+                    for(var i=0, len=s.length; i<len; i++) {
+                    s[i].style["display"] = 'none'; }
+                    var t =document.getElementsByClassName("asl_books1");
+                    for(var i=0, len=t.length; i<len; i++) {
+                    t[i].style["display"] = 'none'; }
+                    var u =document.getElementsByClassName("operation_safety1");
+                    for(var i=0, len=u.length; i<len; i++) {
+                    u[i].style["display"] = 'none'; }
+                    var v =document.getElementsByClassName("f80w_ecnsprocess1");
+                    for(var i=0, len=v.length; i<len; i++) {
+                    v[i].style["display"] = 'none'; }
+                    var w =document.getElementsByClassName("euro_shatal1");
+                    for(var i=0, len=w.length; i<len; i++) {
+                    w[i].style["display"] = 'none'; }
+                    var x =document.getElementsByClassName(redirectDiv);
+                    for(var i=0, len=x.length; i<len; i++) {
+                    x[i].style["display"] = 'revert'; }  
+                }
+                else if(divId=='service_kits'){
+                    var a =document.getElementsByClassName("tech_doc1");
+                    for(var i=0, len=a.length; i<len; i++) {
+                    a[i].style["display"] = 'none'; }
+                    var b =document.getElementsByClassName("pim1");
+                    for(var i=0, len=b.length; i<len; i++) {
+                    b[i].style["display"] = 'none'; }
+                    var c =document.getElementsByClassName("marketing1");
+                    for(var i=0, len=c.length; i<len; i++) {
+                    c[i].style["display"] = 'none'; }
+                    var d =document.getElementsByClassName("aftermarkets1");
+                    for(var i=0, len=d.length; i<len; i++) {
+                    d[i].style["display"] = 'none'; }
+                    var e =document.getElementsByClassName("broucher_flyers1");
+                    for(var i=0, len=e.length; i<len; i++) {
+                    e[i].style["display"] = 'none'; }
+                    var f =document.getElementsByClassName("rendered_images1");
+                    for(var i=0, len=f.length; i<len; i++) {
+                    f[i].style["display"] = 'none'; }
+                    var g =document.getElementsByClassName("photoshope1");
+                    for(var i=0, len=g.length; i<len; i++) {
+                    g[i].style["display"] = 'none'; }
+                    var h =document.getElementsByClassName("illustrations1");
+                    for(var i=0, len=h.length; i<len; i++) {
+                    h[i].style["display"] = 'none'; } 
+                    var j =document.getElementsByClassName("ecns_process1");
+                    for(var i=0, len=j.length; i<len; i++) {
+                    j[i].style["display"] = 'none'; }
+                    var k =document.getElementsByClassName("operations_manuals1");
+                    for(var i=0, len=k.length; i<len; i++) {
+                    k[i].style["display"] = 'none'; }
+                    var l =document.getElementsByClassName("hydraulic_illustration1");
+                    for(var i=0, len=l.length; i<len; i++) {
+                    l[i].style["display"] = 'none'; }
+                    var m =document.getElementsByClassName("electrical_illustraitons1");
+                    for(var i=0, len=m.length; i<len; i++) {
+                    m[i].style["display"] = 'none'; }
+                    var n =document.getElementsByClassName("spp_list1");
+                    for(var i=0, len=n.length; i<len; i++) {
+                    n[i].style["display"] = 'none'; }
+                    var o =document.getElementsByClassName("photo_vector1");
+                    for(var i=0, len=o.length; i<len; i++) {
+                    o[i].style["display"] = 'none'; }
+                    var p =document.getElementsByClassName("model_packages1");
+                    for(var i=0, len=p.length; i<len; i++) {
+                    p[i].style["display"] = 'none'; }
+                    var q =document.getElementsByClassName("service_manuals1");
+                    for(var i=0, len=q.length; i<len; i++) {
+                    q[i].style["display"] = 'none'; }
+                    var r =document.getElementsByClassName("wearpart_kits1");
+                    for(var i=0, len=r.length; i<len; i++) {
+                    r[i].style["display"] = 'none'; }
+                    var s =document.getElementsByClassName("field_kits1");
+                    for(var i=0, len=s.length; i<len; i++) {
+                    s[i].style["display"] = 'none'; }
+                    var t =document.getElementsByClassName("asl_books1");
+                    for(var i=0, len=t.length; i<len; i++) {
+                    t[i].style["display"] = 'none'; }
+                    var u =document.getElementsByClassName("operation_safety1");
+                    for(var i=0, len=u.length; i<len; i++) {
+                    u[i].style["display"] = 'none'; }
+                    var v =document.getElementsByClassName("f80w_ecnsprocess1");
+                    for(var i=0, len=v.length; i<len; i++) {
+                    v[i].style["display"] = 'none'; }
+                    var w =document.getElementsByClassName("euro_shatal1");
+                    for(var i=0, len=w.length; i<len; i++) {
+                    w[i].style["display"] = 'none'; }
+                    var x =document.getElementsByClassName(redirectDiv);
+                    for(var i=0, len=x.length; i<len; i++) {
+                    x[i].style["display"] = 'revert'; }   
+                }  
+                else if(divId=='field_kits'){
+                    var a =document.getElementsByClassName("tech_doc1");
+                    for(var i=0, len=a.length; i<len; i++) {
+                    a[i].style["display"] = 'none'; }
+                    var b =document.getElementsByClassName("pim1");
+                    for(var i=0, len=b.length; i<len; i++) {
+                    b[i].style["display"] = 'none'; }
+                    var c =document.getElementsByClassName("marketing1");
+                    for(var i=0, len=c.length; i<len; i++) {
+                    c[i].style["display"] = 'none'; }
+                    var d =document.getElementsByClassName("aftermarkets1");
+                    for(var i=0, len=d.length; i<len; i++) {
+                    d[i].style["display"] = 'none'; }
+                    var e =document.getElementsByClassName("broucher_flyers1");
+                    for(var i=0, len=e.length; i<len; i++) {
+                    e[i].style["display"] = 'none'; }
+                    var f =document.getElementsByClassName("rendered_images1");
+                    for(var i=0, len=f.length; i<len; i++) {
+                    f[i].style["display"] = 'none'; }
+                    var g =document.getElementsByClassName("photoshope1");
+                    for(var i=0, len=g.length; i<len; i++) {
+                    g[i].style["display"] = 'none'; }
+                    var h =document.getElementsByClassName("illustrations1");
+                    for(var i=0, len=h.length; i<len; i++) {
+                    h[i].style["display"] = 'none'; } 
+                    var j =document.getElementsByClassName("ecns_process1");
+                    for(var i=0, len=j.length; i<len; i++) {
+                    j[i].style["display"] = 'none'; }
+                    var k =document.getElementsByClassName("operations_manuals1");
+                    for(var i=0, len=k.length; i<len; i++) {
+                    k[i].style["display"] = 'none'; }
+                    var l =document.getElementsByClassName("hydraulic_illustration1");
+                    for(var i=0, len=l.length; i<len; i++) {
+                    l[i].style["display"] = 'none'; }
+                    var m =document.getElementsByClassName("electrical_illustraitons1");
+                    for(var i=0, len=m.length; i<len; i++) {
+                    m[i].style["display"] = 'none'; }
+                    var n =document.getElementsByClassName("spp_list1");
+                    for(var i=0, len=n.length; i<len; i++) {
+                    n[i].style["display"] = 'none'; }
+                    var o =document.getElementsByClassName("photo_vector1");
+                    for(var i=0, len=o.length; i<len; i++) {
+                    o[i].style["display"] = 'none'; }
+                    var p =document.getElementsByClassName("model_packages1");
+                    for(var i=0, len=p.length; i<len; i++) {
+                    p[i].style["display"] = 'none'; }
+                    var q =document.getElementsByClassName("service_manuals1");
+                    for(var i=0, len=q.length; i<len; i++) {
+                    q[i].style["display"] = 'none'; }
+                    var r =document.getElementsByClassName("wearpart_kits1");
+                    for(var i=0, len=r.length; i<len; i++) {
+                    r[i].style["display"] = 'none'; }
+                    var s =document.getElementsByClassName("service_kits1");
+                    for(var i=0, len=s.length; i<len; i++) {
+                    s[i].style["display"] = 'none'; }
+                    var t =document.getElementsByClassName("asl_books1");
+                    for(var i=0, len=t.length; i<len; i++) {
+                    t[i].style["display"] = 'none'; }
+                    var u =document.getElementsByClassName("operation_safety1");
+                    for(var i=0, len=u.length; i<len; i++) {
+                    u[i].style["display"] = 'none'; }
+                    var v =document.getElementsByClassName("f80w_ecnsprocess1");
+                    for(var i=0, len=v.length; i<len; i++) {
+                    v[i].style["display"] = 'none'; }
+                    var w =document.getElementsByClassName("euro_shatal1");
+                    for(var i=0, len=w.length; i<len; i++) {
+                    w[i].style["display"] = 'none'; }
+                    var x =document.getElementsByClassName(redirectDiv);
+                    for(var i=0, len=x.length; i<len; i++) {
+                    x[i].style["display"] = 'revert'; }   
+                } 
+                else if(divId=='asl_books'){
+                    var a =document.getElementsByClassName("tech_doc1");
+                    for(var i=0, len=a.length; i<len; i++) {
+                    a[i].style["display"] = 'none'; }
+                    var b =document.getElementsByClassName("pim1");
+                    for(var i=0, len=b.length; i<len; i++) {
+                    b[i].style["display"] = 'none'; }
+                    var c =document.getElementsByClassName("marketing1");
+                    for(var i=0, len=c.length; i<len; i++) {
+                    c[i].style["display"] = 'none'; }
+                    var d =document.getElementsByClassName("aftermarkets1");
+                    for(var i=0, len=d.length; i<len; i++) {
+                    d[i].style["display"] = 'none'; }
+                    var e =document.getElementsByClassName("broucher_flyers1");
+                    for(var i=0, len=e.length; i<len; i++) {
+                    e[i].style["display"] = 'none'; }
+                    var f =document.getElementsByClassName("rendered_images1");
+                    for(var i=0, len=f.length; i<len; i++) {
+                    f[i].style["display"] = 'none'; }
+                    var g =document.getElementsByClassName("photoshope1");
+                    for(var i=0, len=g.length; i<len; i++) {
+                    g[i].style["display"] = 'none'; }
+                    var h =document.getElementsByClassName("illustrations1");
+                    for(var i=0, len=h.length; i<len; i++) {
+                    h[i].style["display"] = 'none'; } 
+                    var j =document.getElementsByClassName("ecns_process1");
+                    for(var i=0, len=j.length; i<len; i++) {
+                    j[i].style["display"] = 'none'; }
+                    var k =document.getElementsByClassName("operations_manuals1");
+                    for(var i=0, len=k.length; i<len; i++) {
+                    k[i].style["display"] = 'none'; }
+                    var l =document.getElementsByClassName("hydraulic_illustration1");
+                    for(var i=0, len=l.length; i<len; i++) {
+                    l[i].style["display"] = 'none'; }
+                    var m =document.getElementsByClassName("electrical_illustraitons1");
+                    for(var i=0, len=m.length; i<len; i++) {
+                    m[i].style["display"] = 'none'; }
+                    var n =document.getElementsByClassName("spp_list1");
+                    for(var i=0, len=n.length; i<len; i++) {
+                    n[i].style["display"] = 'none'; }
+                    var o =document.getElementsByClassName("photo_vector1");
+                    for(var i=0, len=o.length; i<len; i++) {
+                    o[i].style["display"] = 'none'; }
+                    var p =document.getElementsByClassName("model_packages1");
+                    for(var i=0, len=p.length; i<len; i++) {
+                    p[i].style["display"] = 'none'; }
+                    var q =document.getElementsByClassName("service_manuals1");
+                    for(var i=0, len=q.length; i<len; i++) {
+                    q[i].style["display"] = 'none'; }
+                    var r =document.getElementsByClassName("wearpart_kits1");
+                    for(var i=0, len=r.length; i<len; i++) {
+                    r[i].style["display"] = 'none'; }
+                    var s =document.getElementsByClassName("service_kits1");
+                    for(var i=0, len=s.length; i<len; i++) {
+                    s[i].style["display"] = 'none'; }
+                    var t =document.getElementsByClassName("field_kits1");
+                    for(var i=0, len=t.length; i<len; i++) {
+                    t[i].style["display"] = 'none'; }
+                    var u =document.getElementsByClassName("operation_safety1");
+                    for(var i=0, len=u.length; i<len; i++) {
+                    u[i].style["display"] = 'none'; }
+                    var v =document.getElementsByClassName("f80w_ecnsprocess1");
+                    for(var i=0, len=v.length; i<len; i++) {
+                    v[i].style["display"] = 'none'; }
+                    var w =document.getElementsByClassName("euro_shatal1");
+                    for(var i=0, len=w.length; i<len; i++) {
+                    w[i].style["display"] = 'none'; }
+                    var x =document.getElementsByClassName(redirectDiv);
+                    for(var i=0, len=x.length; i<len; i++) {
+                    x[i].style["display"] = 'revert'; }  
+                }
+                else if(divId=='operation_safety'){
+                    var a =document.getElementsByClassName("tech_doc1");
+                    for(var i=0, len=a.length; i<len; i++) {
+                    a[i].style["display"] = 'none'; }
+                    var b =document.getElementsByClassName("pim1");
+                    for(var i=0, len=b.length; i<len; i++) {
+                    b[i].style["display"] = 'none'; }
+                    var c =document.getElementsByClassName("marketing1");
+                    for(var i=0, len=c.length; i<len; i++) {
+                    c[i].style["display"] = 'none'; }
+                    var d =document.getElementsByClassName("aftermarkets1");
+                    for(var i=0, len=d.length; i<len; i++) {
+                    d[i].style["display"] = 'none'; }
+                    var e =document.getElementsByClassName("broucher_flyers1");
+                    for(var i=0, len=e.length; i<len; i++) {
+                    e[i].style["display"] = 'none'; }
+                    var f =document.getElementsByClassName("rendered_images1");
+                    for(var i=0, len=f.length; i<len; i++) {
+                    f[i].style["display"] = 'none'; }
+                    var g =document.getElementsByClassName("photoshope1");
+                    for(var i=0, len=g.length; i<len; i++) {
+                    g[i].style["display"] = 'none'; }
+                    var h =document.getElementsByClassName("illustrations1");
+                    for(var i=0, len=h.length; i<len; i++) {
+                    h[i].style["display"] = 'none'; } 
+                    var j =document.getElementsByClassName("ecns_process1");
+                    for(var i=0, len=j.length; i<len; i++) {
+                    j[i].style["display"] = 'none'; }
+                    var k =document.getElementsByClassName("operations_manuals1");
+                    for(var i=0, len=k.length; i<len; i++) {
+                    k[i].style["display"] = 'none'; }
+                    var l =document.getElementsByClassName("hydraulic_illustration1");
+                    for(var i=0, len=l.length; i<len; i++) {
+                    l[i].style["display"] = 'none'; }
+                    var m =document.getElementsByClassName("electrical_illustraitons1");
+                    for(var i=0, len=m.length; i<len; i++) {
+                    m[i].style["display"] = 'none'; }
+                    var n =document.getElementsByClassName("spp_list1");
+                    for(var i=0, len=n.length; i<len; i++) {
+                    n[i].style["display"] = 'none'; }
+                    var o =document.getElementsByClassName("photo_vector1");
+                    for(var i=0, len=o.length; i<len; i++) {
+                    o[i].style["display"] = 'none'; }
+                    var p =document.getElementsByClassName("model_packages1");
+                    for(var i=0, len=p.length; i<len; i++) {
+                    p[i].style["display"] = 'none'; }
+                    var q =document.getElementsByClassName("service_manuals1");
+                    for(var i=0, len=q.length; i<len; i++) {
+                    q[i].style["display"] = 'none'; }
+                    var r =document.getElementsByClassName("wearpart_kits1");
+                    for(var i=0, len=r.length; i<len; i++) {
+                    r[i].style["display"] = 'none'; }
+                    var s =document.getElementsByClassName("service_kits1");
+                    for(var i=0, len=s.length; i<len; i++) {
+                    s[i].style["display"] = 'none'; }
+                    var t =document.getElementsByClassName("field_kits1");
+                    for(var i=0, len=t.length; i<len; i++) {
+                    t[i].style["display"] = 'none'; }
+                    var u =document.getElementsByClassName("asl_books1");
+                    for(var i=0, len=u.length; i<len; i++) {
+                    u[i].style["display"] = 'none'; }
+                    var v =document.getElementsByClassName("f80w_ecnsprocess1");
+                    for(var i=0, len=v.length; i<len; i++) {
+                    v[i].style["display"] = 'none'; }
+                    var w =document.getElementsByClassName("euro_shatal1");
+                    for(var i=0, len=w.length; i<len; i++) {
+                    w[i].style["display"] = 'none'; }
+                    var x =document.getElementsByClassName(redirectDiv);
+                    for(var i=0, len=x.length; i<len; i++) {
+                    x[i].style["display"] = 'revert'; } 
+                }
+                else if(divId=='f80w_ecnsprocess'){
+                    var a =document.getElementsByClassName("tech_doc1");
+                    for(var i=0, len=a.length; i<len; i++) {
+                    a[i].style["display"] = 'none'; }
+                    var b =document.getElementsByClassName("pim1");
+                    for(var i=0, len=b.length; i<len; i++) {
+                    b[i].style["display"] = 'none'; }
+                    var c =document.getElementsByClassName("marketing1");
+                    for(var i=0, len=c.length; i<len; i++) {
+                    c[i].style["display"] = 'none'; }
+                    var d =document.getElementsByClassName("aftermarkets1");
+                    for(var i=0, len=d.length; i<len; i++) {
+                    d[i].style["display"] = 'none'; }
+                    var e =document.getElementsByClassName("broucher_flyers1");
+                    for(var i=0, len=e.length; i<len; i++) {
+                    e[i].style["display"] = 'none'; }
+                    var f =document.getElementsByClassName("rendered_images1");
+                    for(var i=0, len=f.length; i<len; i++) {
+                    f[i].style["display"] = 'none'; }
+                    var g =document.getElementsByClassName("photoshope1");
+                    for(var i=0, len=g.length; i<len; i++) {
+                    g[i].style["display"] = 'none'; }
+                    var h =document.getElementsByClassName("illustrations1");
+                    for(var i=0, len=h.length; i<len; i++) {
+                    h[i].style["display"] = 'none'; } 
+                    var j =document.getElementsByClassName("ecns_process1");
+                    for(var i=0, len=j.length; i<len; i++) {
+                    j[i].style["display"] = 'none'; }
+                    var k =document.getElementsByClassName("operations_manuals1");
+                    for(var i=0, len=k.length; i<len; i++) {
+                    k[i].style["display"] = 'none'; }
+                    var l =document.getElementsByClassName("hydraulic_illustration1");
+                    for(var i=0, len=l.length; i<len; i++) {
+                    l[i].style["display"] = 'none'; }
+                    var m =document.getElementsByClassName("electrical_illustraitons1");
+                    for(var i=0, len=m.length; i<len; i++) {
+                    m[i].style["display"] = 'none'; }
+                    var n =document.getElementsByClassName("spp_list1");
+                    for(var i=0, len=n.length; i<len; i++) {
+                    n[i].style["display"] = 'none'; }
+                    var o =document.getElementsByClassName("photo_vector1");
+                    for(var i=0, len=o.length; i<len; i++) {
+                    o[i].style["display"] = 'none'; }
+                    var p =document.getElementsByClassName("model_packages1");
+                    for(var i=0, len=p.length; i<len; i++) {
+                    p[i].style["display"] = 'none'; }
+                    var q =document.getElementsByClassName("service_manuals1");
+                    for(var i=0, len=q.length; i<len; i++) {
+                    q[i].style["display"] = 'none'; }
+                    var r =document.getElementsByClassName("wearpart_kits1");
+                    for(var i=0, len=r.length; i<len; i++) {
+                    r[i].style["display"] = 'none'; }
+                    var s =document.getElementsByClassName("service_kits1");
+                    for(var i=0, len=s.length; i<len; i++) {
+                    s[i].style["display"] = 'none'; }
+                    var t =document.getElementsByClassName("field_kits1");
+                    for(var i=0, len=t.length; i<len; i++) {
+                    t[i].style["display"] = 'none'; }
+                    var u =document.getElementsByClassName("asl_books1");
+                    for(var i=0, len=u.length; i<len; i++) {
+                    u[i].style["display"] = 'none'; }
+                    var v =document.getElementsByClassName("operation_safety1");
+                    for(var i=0, len=v.length; i<len; i++) {
+                    v[i].style["display"] = 'none'; }
+                    var w =document.getElementsByClassName("euro_shatal1");
+                    for(var i=0, len=w.length; i<len; i++) {
+                    w[i].style["display"] = 'none'; }
+                    var x =document.getElementsByClassName(redirectDiv);
+                    for(var i=0, len=x.length; i<len; i++) {
+                    x[i].style["display"] = 'revert'; } 
+                }
+                else if(divId=='euro_shatal'){
+                    var a =document.getElementsByClassName("tech_doc1");
+                    for(var i=0, len=a.length; i<len; i++) {
+                    a[i].style["display"] = 'none'; }
+                    var b =document.getElementsByClassName("pim1");
+                    for(var i=0, len=b.length; i<len; i++) {
+                    b[i].style["display"] = 'none'; }
+                    var c =document.getElementsByClassName("marketing1");
+                    for(var i=0, len=c.length; i<len; i++) {
+                    c[i].style["display"] = 'none'; }
+                    var d =document.getElementsByClassName("aftermarkets1");
+                    for(var i=0, len=d.length; i<len; i++) {
+                    d[i].style["display"] = 'none'; }
+                    var e =document.getElementsByClassName("broucher_flyers1");
+                    for(var i=0, len=e.length; i<len; i++) {
+                    e[i].style["display"] = 'none'; }
+                    var f =document.getElementsByClassName("rendered_images1");
+                    for(var i=0, len=f.length; i<len; i++) {
+                    f[i].style["display"] = 'none'; }
+                    var g =document.getElementsByClassName("photoshope1");
+                    for(var i=0, len=g.length; i<len; i++) {
+                    g[i].style["display"] = 'none'; }
+                    var h =document.getElementsByClassName("illustrations1");
+                    for(var i=0, len=h.length; i<len; i++) {
+                    h[i].style["display"] = 'none'; } 
+                    var j =document.getElementsByClassName("ecns_process1");
+                    for(var i=0, len=j.length; i<len; i++) {
+                    j[i].style["display"] = 'none'; }
+                    var k =document.getElementsByClassName("operations_manuals1");
+                    for(var i=0, len=k.length; i<len; i++) {
+                    k[i].style["display"] = 'none'; }
+                    var l =document.getElementsByClassName("hydraulic_illustration1");
+                    for(var i=0, len=l.length; i<len; i++) {
+                    l[i].style["display"] = 'none'; }
+                    var m =document.getElementsByClassName("electrical_illustraitons1");
+                    for(var i=0, len=m.length; i<len; i++) {
+                    m[i].style["display"] = 'none'; }
+                    var n =document.getElementsByClassName("spp_list1");
+                    for(var i=0, len=n.length; i<len; i++) {
+                    n[i].style["display"] = 'none'; }
+                    var o =document.getElementsByClassName("photo_vector1");
+                    for(var i=0, len=o.length; i<len; i++) {
+                    o[i].style["display"] = 'none'; }
+                    var p =document.getElementsByClassName("model_packages1");
+                    for(var i=0, len=p.length; i<len; i++) {
+                    p[i].style["display"] = 'none'; }
+                    var q =document.getElementsByClassName("service_manuals1");
+                    for(var i=0, len=q.length; i<len; i++) {
+                    q[i].style["display"] = 'none'; }
+                    var r =document.getElementsByClassName("wearpart_kits1");
+                    for(var i=0, len=r.length; i<len; i++) {
+                    r[i].style["display"] = 'none'; }
+                    var s =document.getElementsByClassName("service_kits1");
+                    for(var i=0, len=s.length; i<len; i++) {
+                    s[i].style["display"] = 'none'; }
+                    var t =document.getElementsByClassName("field_kits1");
+                    for(var i=0, len=t.length; i<len; i++) {
+                    t[i].style["display"] = 'none'; }
+                    var u =document.getElementsByClassName("asl_books1");
+                    for(var i=0, len=u.length; i<len; i++) {
+                    u[i].style["display"] = 'none'; }
+                    var v =document.getElementsByClassName("operation_safety1");
+                    for(var i=0, len=v.length; i<len; i++) {
+                    v[i].style["display"] = 'none'; }
+                    var w =document.getElementsByClassName("f80w_ecnsprocess1");
+                    for(var i=0, len=w.length; i<len; i++) {
+                    w[i].style["display"] = 'none'; }
+                    var x =document.getElementsByClassName(redirectDiv);
+                    for(var i=0, len=x.length; i<len; i++) {
+                    x[i].style["display"] = 'revert'; }
+                }
+                    
+                     
+                
+                // else{
+                //     var a =document.getElementsByClassName("tech_doc1");
+                //     for(var i=0, len=a.length; i<len; i++) {
+                //     a[i].style["display"] = 'none'; }
+                //     var b =document.getElementsByClassName("marketing1");
+                //     for(var i=0, len=b.length; i<len; i++) {
+                //     b[i].style["display"] = 'none'; }
+                //     var c =document.getElementsByClassName("pim1");
+                //     for(var i=0, len=c.length; i<len; i++) {
+                //     c[i].style["display"] = 'none'; }
+                //     var d =document.getElementsByClassName(redirectDiv);
+                //     for(var i=0, len=d.length; i<len; i++) {
+                //     d[i].style["display"] = 'revert'; }
+                // }
+            }
+          Date.prototype.yyyymmdd = function() {
+            var mm = this.getMonth() + 1; 
+            var dd = this.getDate();
+
+            return [(dd>9 ? '' : '0') + dd +'-',
+                    (mm>9 ? '' : '0') + mm +'-',
+                    this.getFullYear() +' ',
+                    this.getHours()+ ':',
+                    this.getMinutes()
+                    
+                    ].join('');
+            };
+
+            var date = new Date();
+            
+        document.getElementById("date").innerHTML = date.yyyymmdd();
+   
+	</script>
+
+	
+</body>
+
+</html>
